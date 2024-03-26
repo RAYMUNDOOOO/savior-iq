@@ -15,6 +15,7 @@ a {
 }
 
 a:hover {
+  /* font-weight: bold; */
   color: rgb(212, 95, 28);
 }
 
