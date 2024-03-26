@@ -14,9 +14,13 @@ a {
   font-size: 18px;
 }
 
+a:hover {
+  color: rgb(212, 95, 28);
+}
+
 /* navbar */
 .navbar {
-  background-color: aliceblue;
+  background-color: rgb(255, 255, 255);
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -80,7 +84,7 @@ a {
     text-align: start;
     width: 100%;
     transition: 0.7s ease-in-out;
-    background-color: aliceblue;
+    background-color: rgb(255, 255, 255);
     padding: 10px;
   }
 
