@@ -5,9 +5,9 @@ import DefaultButton, { SignUpButton, LoginButton } from "/src/components/Button
 export default function App() {
   return (
     <>
-          <DefaultButton { ..."Testing" } />
-          <SignUpButton { ..."Sign up!" }/>
-          <LoginButton { ..."Login" }/>
+          <DefaultButton text="Hello!" />
+          <LoginButton text="Login" />
+          <SignUpButton text="Sign up!" />
           <Navbar />
     </>
   );
