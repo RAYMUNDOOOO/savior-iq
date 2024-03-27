@@ -9,16 +9,16 @@ export default function DefaultButton({ text }) {
 
 export function SignUpButton({ text }) {
         return (
-                <button className={`${style.btn} ${style.signUp}`}>{text}
-                        <a href="/signUp"></a>
-                </button>
+                <a href="/signUp">
+                        <button className={`${style.btn} ${style.signUp}`}>{text}</button>
+                </a>
         );
 }
 
 export function LoginButton({ text }) {
         return (
-                <button className={`${style.btn} ${style.login}`}>{text}
-                        <a href="/login"></a>
-                </button>
+                <a href="/login">
+                        <button className={`${style.btn} ${style.login}`}>{text}</button>
+                </a>
         );
 }
