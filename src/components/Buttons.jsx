@@ -22,3 +22,21 @@ export function LoginButton({ text }) {
                 </a>
         );
 }
+
+export function GetStartedButton() {
+        return (
+                <a href="/">
+                        <button className={`${style.btn} ${style.getStarted}`}>Get Started</button>
+                        // Insert arrow ligature on the right side.
+                </a>
+        );
+}
+
+export function PlayVideo() {
+        return (
+                <a href="/">
+                        // Insert play button here.
+                        <button className={`${style.btn} ${style.playVideo}`}>Play  video</button>
+                </a>
+        );
+}
