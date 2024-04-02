@@ -1,6 +1,6 @@
 import "./App.css";
 import Navbar from "/src/components/NavBar";
-import DefaultButton, { SignUpButton, LoginButton } from "/src/components/Buttons"
+import DefaultButton, { SignUpButton, LoginButton, GetStartedButton, PlayVideoButton } from "/src/components/Buttons"
 
 export default function App() {
   return (
@@ -8,6 +8,8 @@ export default function App() {
           <DefaultButton text="Hello!" />
           <LoginButton text="Login" />
           <SignUpButton text="Sign up!" />
+          <GetStartedButton />
+          <PlayVideoButton />
           <Navbar />
     </>
   );
