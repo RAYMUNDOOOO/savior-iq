@@ -38,9 +38,11 @@ export function GetStartedButton() {
 
 export function PlayVideoButton() {
         return (
-                <a href="/">
-                        <PlayCircleIcon />
-                        <button className={`${style.btn} ${style.playVideo}`}>Play video</button> 
-                </a>
+                <button className={`${style.btn} ${style.playVideo}`}>
+                        <div id={`${style.playVideoContainer}`}>
+                                <PlayCircleIcon />
+                                <span>Play video</span>
+                        </div>
+                </button>
         );
 }
