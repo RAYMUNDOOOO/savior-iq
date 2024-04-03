@@ -27,12 +27,12 @@ export function LoginButton({ text }) {
 
 export function GetStartedButton() {
         return (
-                <a href="/">
-                        <button className={`${style.btn} ${style.getStarted}`}> 
-                                Get Started
+                <button className={`${style.btn} ${style.getStarted}`}>
+                        <div id={`${style.getStartedContainer}`}>
+                                <span>Get Started</span>
                                 <ArrowForwardIcon />
-                        </button>
-                </a>
+                        </div>
+                </button>
         );
 }
 

@@ -2,6 +2,7 @@
         background-color: #000000;
         color: #FFFFFF;
         padding: 15px;
+        vertical-align: baseline;
 }
 
 .signUp {
@@ -18,6 +19,18 @@
         background-color: #F7CE46;
         color: #000000;
 }
+
+#getStartedContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+}
+
+#getStartedContainer > span {
+        margin-right: 5px;
+}
+
 
 .playVideo {
         background-color: #FFFFFF;
