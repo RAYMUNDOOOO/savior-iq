@@ -1,17 +1,18 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import Navbar from "/src/components/NavBar";
+import DefaultButton, { SignUpButton, LoginButton, GetStartedButton, PlayVideoButton } from "/src/components/Buttons"
 import SearchBar from "/src/components/Search";
 
 export default function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-        <SearchBar />
-      <Navbar />
+          <DefaultButton text="Hello!" />
+          <LoginButton text="Login" />
+          <SignUpButton text="Sign up!" />
+          <GetStartedButton />
+          <PlayVideoButton />
+          <SearchBar />
+          <Navbar />
     </>
   );
 }
