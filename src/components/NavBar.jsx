@@ -28,7 +28,7 @@ function Navbar() {
       <header className="App-header">
         <nav className={`${styles.navbar}`}>
           {/* logo */}
-          <a href="/home" className={`${styles.logo}`}>
+          <a href="/" className={`${styles.logo}`}>
             The Oracle{" "}
           </a>
           <ul className={`${styles.navMenu} ${isActive ? styles.active : ""}`}>
