@@ -1,0 +1,14 @@
+#searchBarContainer {
+        display: flex;
+        flex-direction: row;
+        border-color: #ABB7C2;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 5px;
+        padding: 0px 8px 0px 8px;
+}
+
+/* Need to change font sizes. */
+#searchBarContainer > input {
+        border-style: none;
+}
