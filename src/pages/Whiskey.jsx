@@ -8,7 +8,7 @@ function Whiskey() {
       <Navbar />
       <h1>Whiskey Page</h1>
       <p>Welcome to the Whiskey page!</p>
-      <div>
+      <div style={{ textAlign: "left" }}>
         <SideFilter />
       </div>
     </div>
