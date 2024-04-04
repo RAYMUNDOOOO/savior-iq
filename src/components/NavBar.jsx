@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./Navbar.module.css";
+import styles from "/src/styles/navbar.module.css";
 
 import {
   BrowserRouter as Router,
@@ -26,35 +26,35 @@ function Navbar() {
       <header className="App-header">
         <nav className={`${styles.navbar}`}>
           {/* logo */}
-          <a href="/home" className={`${styles.logo}`}>
+          <a href="/" className={`${styles.logo}`}>
             The Oracle{" "}
           </a>
           <ul className={`${styles.navMenu} ${isActive ? styles.active : ""}`}>
             <li onClick={removeActive}>
-              <a href="/about" className={`${styles.navLink}`}>
+              <a href="/about" className={`${styles.navMenu}`}>
                 About
               </a>
             </li>
             <li onClick={removeActive}>
-              <a href="/whiskey" className={`${styles.navLink}`}>
+              <a href="/whiskey" className={`${styles.navMenu}`}>
                 Whiskey
               </a>
             </li>
 
             <li onClick={removeActive}>
-              <a href="/contact" className={`${styles.navLink}`}>
+              <a href="/contact" className={`${styles.navMenu}`}>
                 Contact
               </a>
             </li>
 
             {/* <li onClick={removeActive}>
-              <Link to="/about.jsx" className={`${styles.navLink}`}>
+              <Link to="/about.jsx" className={`${style.navLink}`}>
                 About
               </Link>
             </li>
 
             <li onClick={removeActive}>
-              <a href="#home" className={`${styles.navLink}`}>
+              <a href="#home" className={`${style.navLink}`}>
                 Test
               </a>
             </li> */}

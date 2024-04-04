@@ -13,42 +13,57 @@ import {
   ListItemText,
   MenuItem,
   Select,
-  TextField
+  TextField,
 } from "@mui/material";
 import { Add, Remove } from "@mui/icons-material";
 
 const filters = [
+  // {
+  //   label: "Whiskey Bottle",
+  //   type: "autocomplete",
+  //   options: ["Lorem ipsum", "Lorem ipsum"],
+  // },
   {
-    label: "Whiskey Bottle",
-    type: "autocomplete",
-    options: ["Lorem ipsum", "Lorem ipsum"]
-  },
-  {
-    label: "Manufacturer",
-    type: "autocomplete",
-    options: ["Asus", "Lenovo", "Dell", "Apple", "Samsung"]
-  },
-  {
-    label: "Screen size",
+    label: "Region",
     type: "checkbox",
-    options: ["13in", "14in", "15.6in", "Over 15.6in"]
+    options: [
+      "Australia",
+      "India",
+      "Ireland",
+      "Japan",
+      "Scotland",
+      "United States",
+      "Taiwan",
+      "Rest of the world",
+    ],
   },
   {
-    label: "Price",
+    label: "Flavour",
     type: "checkbox",
-    options: ["< $1000", "$1000-$1400", "$1400-$2000", "> $2000"],
-    required: true
+    options: [
+      "Sweet",
+      "Smokey",
+      "Floral",
+      "Fruity",
+      "Spicy",
+      "Herbal",
+      "Peaty",
+    ],
   },
   {
-    label: "Frame refresh rate",
+    label: "Brand",
     type: "checkbox",
-    options: ["61-99 Hz", "100-120 Hz", "121-144 Hz", "145-240 Hz"]
+    options: [
+      "Ardbeg",
+      "BenRiach",
+      "Benromach",
+      "Black Gate",
+      "Cotswolds",
+      "Elements of Islay",
+      "G&M",
+      "Glendronach",
+    ],
   },
-  {
-    label: "RAM",
-    type: "checkbox",
-    options: ["< 2GB", "2-4 GB", "4-8 GB", "8-16 GB"]
-  }
 ];
 
 export default function SideFilter() {
@@ -58,21 +73,21 @@ export default function SideFilter() {
   const handleToggleFilter = (filterLabel) => {
     setOpenFilters((prevOpenFilters) => ({
       ...prevOpenFilters,
-      [filterLabel]: !prevOpenFilters[filterLabel]
+      [filterLabel]: !prevOpenFilters[filterLabel],
     }));
   };
 
   const handleFilterChange = (event) => {
     setFilterValues((prevFilterValues) => ({
       ...prevFilterValues,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     }));
   };
 
   const handleAutocompleteChange = (event, value, filterLabel) => {
     setFilterValues((prevFilterValues) => ({
       ...prevFilterValues,
-      [filterLabel]: value
+      [filterLabel]: value,
     }));
   };
 
@@ -83,7 +98,7 @@ export default function SideFilter() {
         ? [...(prevFilterValues[event.target.name] || []), event.target.value]
         : prevFilterValues[event.target.name].filter(
             (value) => value !== event.target.value
-          )
+          ),
     }));
   };
 
@@ -113,9 +128,11 @@ export default function SideFilter() {
             <ListItem button onClick={() => handleToggleFilter(filter.label)}>
               <ListItemText primary={filter.label} />
               {openFilters[filter.label] ? (
-                <Remove sx={{ color: filter.required ? "red" : undefined }} />
+                <Remove
+                  sx={{ color: filter.required ? "orange" : undefined }}
+                />
               ) : (
-                <Add sx={{ color: filter.required ? "red" : undefined }} />
+                <Add sx={{ color: filter.required ? "orange" : undefined }} />
               )}
             </ListItem>
             <Collapse
@@ -136,8 +153,8 @@ export default function SideFilter() {
                     sx={{
                       width: "100%",
                       "& .MuiOutlinedInput-root": {
-                        border: "none"
-                      }
+                        border: "none",
+                      },
                     }}
                   />
                 </ListItem>
@@ -176,8 +193,8 @@ export default function SideFilter() {
                         value={option}
                         sx={{
                           "&.Mui-checked": {
-                            color: "red"
-                          }
+                            color: "orange",
+                          },
                         }}
                       />
                       <ListItemText primary={option} />
@@ -192,4 +209,4 @@ export default function SideFilter() {
       </List>
     </Box>
   );
-};
+}
