@@ -29,7 +29,7 @@ function Navbar() {
         <nav className={`${styles.navbar}`}>
           {/* logo */}
           <Link to="/" className={`${styles.logo}`}>
-            The Oracle{" "}
+                <span>The Oracle{" "}</span>
           </Link>
           <ul className={`${styles.navMenu} ${isActive ? styles.active : ""}`}>
             <li onClick={removeActive}>
@@ -57,7 +57,7 @@ function Navbar() {
             <span className={`${styles.bar}`}></span>
             <span className={`${styles.bar}`}></span>
           </div>
-          <div>
+          <div className={`${styles.buttonContainer}`}>
                 <SignUpButton text="Sign up!"/>
                 <LoginButton text="Login"/>
           </div>
