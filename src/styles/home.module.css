@@ -29,6 +29,11 @@
         text-align: center;
 }
 
+#homeHero > img {
+        height: 100%;
+        width: 650px;
+}
+
 .buttonsContainer {
 	display:flex;
 	flex-direction: row-reverse;
