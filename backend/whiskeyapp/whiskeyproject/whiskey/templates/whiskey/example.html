@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compound & Whiskey API</title>
+</head>
+<body>
+
+<h2>Compound & Whiskey Data</h2>
+
+<!-- adding compound -->
+<h3>Add Compound</h3>
+<form id="compound-form">
+    Compound ID: <input type="number" id="compound_id"><br>
+    Compound Name: <input type="text" id="c_name"><br>
+    Compound Flavour: <input type="text" id="c_flavour"><br>
+    <input type="submit" value="Add Compound">
+</form>
+
+
+<script>
+// get CSRFToken
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+const csrftoken = getCookie('csrftoken');
+
+// compound form submit
+document.getElementById('compound-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const compoundId = document.getElementById('compound_id').value;
+    const cName = document.getElementById('c_name').value;
+    const cFlavour = document.getElementById('c_flavour').value;
+
+    fetch('/compound/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,  
+        },
+        body: JSON.stringify({ Compound_id: compoundId, C_Name: cName, C_Flavour: cFlavour })
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+});
+</script>
+</body>
+</html>
+
