@@ -57,7 +57,8 @@ function Navbar() {
             <span className={`${styles.bar}`}></span>
             <span className={`${styles.bar}`}></span>
           </div>
-          <div className={`${styles.buttonContainer}`}>
+          <div className={`${styles.rightContainer}`}>
+                <SearchBar />
                 <SignUpButton text="Sign up!"/>
                 <LoginButton text="Login"/>
           </div>

@@ -83,16 +83,15 @@ a:hover {
   color: rgb(212, 95, 28);
 }
 
-.buttonContainer {
+.rightContainer {
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
         justify-content: flex-end;
-        width: 40rem;
 }
 
-.buttonContainer > * {
-        padding-right: 10px;
+.rightContainer > * {
+        margin-right: 1rem;
 }
 
 /* media queries */
