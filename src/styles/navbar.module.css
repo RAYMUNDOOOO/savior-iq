@@ -22,7 +22,9 @@ a:hover {
 /* navbar */
 .navbar {
   background-color: rgb(255, 255, 255);
-  padding: 10px 20px;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,14 +36,62 @@ a:hover {
 .logo {
   font-size: 30px;
   font-family: Arial, Helvetica, sans-serif;
+  color: rgb(209, 123, 73);
+}
+
+.logo > span {
+        display: inline-block;
+        width: 10rem;
+}
+
+.logo:hover {
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(212, 95, 28);
 }
 
 /* ul  */
+.navLink {
+  /* display: flex; */
+  font-family: Arial, Helvetica, sans-serif;
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  /* gap: 60px; */
+  color: black;
+}
+.navLink:hover {
+  /* display: flex; */
+  font-family: Arial, Helvetica, sans-serif;
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  /* gap: 60px; */
+  color: rgb(212, 95, 28);
+}
+
 .navMenu {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
   gap: 60px;
+  color: black;
+}
+
+.navMenu:hover {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  gap: 60px;
+  color: rgb(212, 95, 28);
+}
+
+.rightContainer {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: flex-end;
+}
+
+.rightContainer > * {
+        margin-right: 1rem;
 }
 
 /* media queries */

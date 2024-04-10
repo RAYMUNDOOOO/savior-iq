@@ -2,12 +2,18 @@
         background-color: #000000;
         color: #FFFFFF;
         padding: 15px;
-        vertical-align: baseline;
+        height: 3rem;
+        display: inline-flex;
+        align-items: center;
 }
 
 .signUp {
         background-color: #FFFFFF;
         color: #1D4ED8;
+        border-style: solid;
+        border-color: #6183E4;
+        border-width: 1px;
+        min-width: 7rem;
 }
 
 .login {
