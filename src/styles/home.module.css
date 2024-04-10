@@ -1,10 +1,14 @@
 .homeContainer {
 	background-color: white;
+        height: 100vh;
 }
 
 .homeContentContainer {
 	display: flex;
 	flex-direction: row;
+        height: 100%;
+        width: 100vw;
+        align-items: center;
 }
 
 .homeContent {
@@ -12,16 +16,25 @@
 	flex-direction: column;
 	justify-content: center;
 	color: black;
-	padding-left: 25px;
+	padding-left: 5rem;
+        width: 50vw;
 }
 
 .homeContent > div {
-	padding-bottom: 10px;
+	padding-bottom: 2rem;
+}
+
+#homeHero {
+        width: 60vw;
+        text-align: center;
 }
 
 .buttonsContainer {
 	display:flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	padding-right: 20px;
+	flex-direction: row-reverse;
+	justify-content: flex-end;
+}
+
+.buttonsContainer > div {
+        padding-right: 1rem;
 }

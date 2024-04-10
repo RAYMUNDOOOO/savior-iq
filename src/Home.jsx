@@ -1,4 +1,3 @@
-import "./Home.css";
 import Navbar from "/src/components/NavBar";
 import DefaultButton, { SignUpButton, LoginButton, GetStartedButton, PlayVideoButton } from "/src/components/Buttons"
 import SearchBar from "/src/components/Search";
@@ -18,8 +17,12 @@ export default function Home() {
                                 <p>It's a long established fact that a reader will be distracted by the readable content of a page when look at its layout.</p>
                         </div>
                         <div className={`${style.buttonsContainer}`}>
-                                <PlayVideoButton />
-                                <GetStartedButton />
+                                <div>
+                                        <PlayVideoButton />
+                                </div>
+                                <div>
+                                        <GetStartedButton />
+                                </div>
                         </div>
                 </div>
                 <div id={`${style.homeHero}`}>
