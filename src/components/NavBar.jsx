@@ -1,7 +1,7 @@
 import { useState } from "react";
+import styles from "/src/styles/navbar.module.css";
 import SearchBar from "/src/components/Search";
 import DefaultButton, { SignUpButton, LoginButton } from "/src/components/Buttons"
-import styles from "./Navbar.module.css";
 
 import {
   BrowserRouter as Router,
@@ -28,38 +28,26 @@ function Navbar() {
       <header className="App-header">
         <nav className={`${styles.navbar}`}>
           {/* logo */}
-          <a href="/" className={`${styles.logo}`}>
+          <Link to="/" className={`${styles.logo}`}>
             The Oracle{" "}
-          </a>
+          </Link>
           <ul className={`${styles.navMenu} ${isActive ? styles.active : ""}`}>
             <li onClick={removeActive}>
-              <a href="/about" className={`${styles.navLink}`}>
+              <Link to="/about" className={`${styles.navLink}`}>
                 About
-              </a>
+              </Link>
             </li>
             <li onClick={removeActive}>
-              <a href="/whiskey" className={`${styles.navLink}`}>
+              <Link to="/whiskey" className={`${styles.navLink}`}>
                 Whiskey
-              </a>
-            </li>
-
-            <li onClick={removeActive}>
-              <a href="/contact" className={`${styles.navLink}`}>
-                Contact
-              </a>
-            </li>
-
-            {/* <li onClick={removeActive}>
-              <Link to="/about.jsx" className={`${styles.navLink}`}>
-                About
               </Link>
             </li>
 
             <li onClick={removeActive}>
-              <a href="#home" className={`${styles.navLink}`}>
-                Test
-              </a>
-            </li> */}
+              <Link to="/contact" className={`${styles.navLink}`}>
+                Contact
+              </Link>
+            </li>
           </ul>
           <div
             className={`${styles.hamburger} ${isActive ? styles.active : ""}`}
