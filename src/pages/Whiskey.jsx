@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/NavBar";
 import SideFilter from "../components/SideFilter";
+import Toggle from "../components/Toggle";
 
 function Whiskey() {
   return (
@@ -10,6 +11,7 @@ function Whiskey() {
       <p>Welcome to the Whiskey page!</p>
       <div style={{ textAlign: "left" }}>
         <SideFilter />
+        <Toggle/>
       </div>
     </div>
   );
