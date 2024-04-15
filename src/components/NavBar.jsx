@@ -27,7 +27,7 @@ function Navbar() {
         <nav className={`${styles.navbar}`}>
           {/* logo */}
           <Link to="/" className={`${styles.logo}`}>
-            The Oracle{" "}
+            The Oracle
           </Link>
           <ul className={`${styles.navMenu} ${isActive ? styles.active : ""}`}>
             <li onClick={removeActive}>
