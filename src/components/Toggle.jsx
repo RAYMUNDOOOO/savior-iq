@@ -50,7 +50,7 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-export default function Toggle() {
+export default function Toggle({ change }) {
   const [state, setState] = React.useState({
     whiskey: false,
   });
@@ -61,6 +61,7 @@ export default function Toggle() {
       ...prevState,
       whiskey: !prevState.whiskey,
     }));
+    change({ whiskey: !state.whiskey });
   };
 
   React.useEffect(() => {
@@ -70,7 +71,7 @@ export default function Toggle() {
   return (
     <FormGroup>
       <Stack direction="row" spacing={1} alignItems="center">
-        <Typography>Whiskey</Typography>
+        <Typography>Chemistry</Typography>
         <AntSwitch
           defaultChecked
           inputProps={{ "aria-label": "ant design" }}
@@ -78,7 +79,7 @@ export default function Toggle() {
           onChange={handleChange}
           name="whiskey"
         />
-        <Typography>Chemistry</Typography>
+        <Typography>Whiskey</Typography>
       </Stack>
     </FormGroup>
   );
