@@ -1,0 +1,45 @@
+.homeContainer {
+	background-color: white;
+        height: 100vh;
+}
+
+.homeContentContainer {
+	display: flex;
+	flex-direction: row;
+        height: 100%;
+        width: 100vw;
+        align-items: center;
+}
+
+.homeContent {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: black;
+	padding-left: 5rem;
+        width: 50vw;
+}
+
+.homeContent > div {
+	padding-bottom: 2rem;
+}
+
+#homeHero {
+        width: 60vw;
+        text-align: center;
+}
+
+#homeHero > img {
+        height: 100%;
+        width: 40rem;
+}
+
+.buttonsContainer {
+	display:flex;
+	flex-direction: row-reverse;
+	justify-content: flex-end;
+}
+
+.buttonsContainer > div {
+        padding-right: 1rem;
+}

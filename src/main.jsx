@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+import Home from "./Home.jsx";
 import "./index.css";
 import About from "./pages/About.jsx";
 import Whiskey from "./pages/Whiskey.jsx";
@@ -11,8 +11,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
-    path: "/home",
-    element: <App />,
+    path: "/",
+    element: <Home />,
   },
   {
     path: "/about",
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <App /> */}
+    {/* <Home /> */}
     <RouterProvider router={router} />
   </React.StrictMode>
 );

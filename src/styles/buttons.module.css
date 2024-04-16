@@ -1,0 +1,55 @@
+.btn {
+        background-color: #000000;
+        color: #FFFFFF;
+        padding: 15px;
+        height: 3rem;
+        display: inline-flex;
+        align-items: center;
+}
+
+.signUp {
+        background-color: #FFFFFF;
+        color: #1D4ED8;
+        border-style: solid;
+        border-color: #6183E4;
+        border-width: 1px;
+        min-width: 7rem;
+}
+
+.login {
+        background-color: #1D4ED8;
+        color: #FFFFFF;
+}
+
+.getStarted {
+        background-color: #F7CE46;
+        color: #000000;
+}
+
+#getStartedContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+}
+
+#getStartedContainer > span {
+        margin-right: 5px;
+}
+
+
+.playVideo {
+        background-color: #FFFFFF;
+        color: #6183E4;
+}
+
+#playVideoContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+}
+
+#playVideoContainer > span {
+        margin-left: 5px;
+}
