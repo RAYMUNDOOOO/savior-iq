@@ -1,5 +1,10 @@
 import { useState } from "react";
 import styles from "/src/styles/navbar.module.css";
+import SearchBar from "/src/components/Search";
+import DefaultButton, {
+  SignUpButton,
+  LoginButton,
+} from "/src/components/Buttons";
 
 import {
   BrowserRouter as Router,
@@ -54,6 +59,11 @@ function Navbar() {
             <span className={`${styles.bar}`}></span>
             <span className={`${styles.bar}`}></span>
             <span className={`${styles.bar}`}></span>
+          </div>
+          <div className={`${styles.rightContainer}`}>
+            <SearchBar />
+            <SignUpButton text="Sign up!" />
+            <LoginButton text="Login" />
           </div>
         </nav>
       </header>
