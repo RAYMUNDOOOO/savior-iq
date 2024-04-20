@@ -1,7 +1,10 @@
 import { useState } from "react";
 import styles from "/src/styles/navbar.module.css";
 import SearchBar from "/src/components/Search";
-import DefaultButton, { SignUpButton, LoginButton } from "/src/components/Buttons"
+import DefaultButton, {
+  SignUpButton,
+  LoginButton,
+} from "/src/components/Buttons";
 
 import {
   BrowserRouter as Router,
@@ -29,7 +32,7 @@ function Navbar() {
         <nav className={`${styles.navbar}`}>
           {/* logo */}
           <Link to="/" className={`${styles.logo}`}>
-                <span>The Oracle{" "}</span>
+            The Oracle
           </Link>
           <ul className={`${styles.navMenu} ${isActive ? styles.active : ""}`}>
             <li onClick={removeActive}>
@@ -58,9 +61,9 @@ function Navbar() {
             <span className={`${styles.bar}`}></span>
           </div>
           <div className={`${styles.rightContainer}`}>
-                <SearchBar />
-                <SignUpButton text="Sign up!"/>
-                <LoginButton text="Login"/>
+            <SearchBar />
+            <SignUpButton text="Sign up!" />
+            <LoginButton text="Login" />
           </div>
         </nav>
       </header>
