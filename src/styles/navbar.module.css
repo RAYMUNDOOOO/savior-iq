@@ -40,8 +40,8 @@ a:hover {
 }
 
 .logo > span {
-        display: inline-block;
-        width: 10rem;
+  display: inline-block;
+  width: 10rem;
 }
 
 .logo:hover {
@@ -84,14 +84,14 @@ a:hover {
 }
 
 .rightContainer {
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: center;
-        justify-content: flex-end;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .rightContainer > * {
-        margin-right: 1rem;
+  margin-right: 1rem;
 }
 
 /* media queries */
