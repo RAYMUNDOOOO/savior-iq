@@ -4,7 +4,7 @@ export const data = {
     "Drinking",
     "Sleeping",
     "Designing",
-    "Coding",
+    "Pooooo",
     "Cycling",
     "Running",
   ],
