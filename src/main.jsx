@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "chart.js/auto";
 import App from "./Home.jsx";
 import "./index.css";
 import About from "./pages/About.jsx";
