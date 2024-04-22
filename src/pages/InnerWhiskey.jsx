@@ -50,7 +50,7 @@ function InnerWhiskey() {
   // useEffect(() => {
   //   const fetchData = async () => {
   //     try {
-  //       // Dynamically import the JSON file based on the params.id
+  //       // Dynamically import the jsx file based on the params.id
   //       const module = await import(`../src/chemical/${params.id}.jsx`);
   //       setData(module.default);
   //     } catch (error) {
@@ -63,13 +63,35 @@ function InnerWhiskey() {
   //     // Cleanup logic if needed
   //   };
   // }, [params.id]);
+  // const history = useHistory();
+
+  const handlePointClick = (event, elements) => {
+    if (elements.length > 0) {
+      const clickedDatasetIndex = elements[0].datasetIndex;
+      const clickedElementIndex = elements[0].index;
+      // Determine which point was clicked based on dataset and index
+      // Here, you can implement logic to navigate to different pages based on the clicked point
+      console.log("Clicked dataset index:", clickedDatasetIndex);
+      console.log("Clicked element index:", clickedElementIndex);
+      // history.push(`/details/${clickedElementIndex}`);
+    }
+  };
 
   return (
     <div>
       <Navbar />
       <h1>Inner Whiskey Page</h1>
       <p>Welcome to the Inner Whiskey {params.id} page!</p>
-      <div id="radar-chart">{data && <RadarChart data={data} />}</div>
+      <div id="radar-chart" style={{ height: "40vh", width: "80vw" }}>
+        {data && (
+          <RadarChart
+            data={data}
+            options={{
+              onClick: handlePointClick,
+            }}
+          />
+        )}
+      </div>
     </div>
   );
 }
