@@ -43,7 +43,7 @@ function Whiskey() {
       <div style={{ textAlign: "left" }}>
         <SideFilter text={state.type ? "whiskey" : "chemistry"} />
         <Toggle change={handleChange} />
-        <Grid appliedMode={false}/>
+        <Grid appliedMode={state.type} />
       </div>
     </div>
   );
