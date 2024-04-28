@@ -7,7 +7,7 @@ import {
   Outlet,
   Link,
 } from "react-router-dom";
-
+import { TileTable } from "../tables/tiles";
 
 /*
  * The toggle switch component will pass down its state into the Grid, 
@@ -15,8 +15,19 @@ import {
  * needs to pass in which filters are currently being applied so that we 
  * can selectively render tiles that also use that filter.
  */
-export default function Grid({ mode, appliedFilters }) {
+export function Grid({ appliedMode, appliedFilters }) {
+  var tiles = [];
+  for (var i = 0; i < TileTable.length; i++) {
+    var newTile = <Tile mode={appliedMode} img={TileTable[i].img} url={TileTable[i].url} filters={TileTable[i].filters} />
+    tiles.push(newTile);
+  }
 
+  const tilesToRender = tiles.map((currentTile) => <div>{currentTile}</div>);
+  return (
+    <div>
+      {tilesToRender};
+    </div>
+  );
 }
 
 /*
@@ -43,3 +54,5 @@ export function Tile({ mode, img, url, filters })  {
     </div>
   )
 }
+
+export default Grid;
