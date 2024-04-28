@@ -1,5 +1,5 @@
 from django.db import models
-
+from import_export.admin import ImportExportModelAdmin
 
 class UserAdmin(models.Model):
     Id = models.IntegerField(primary_key=True)
@@ -25,7 +25,6 @@ class Compound(models.Model):
     Compound_id = models.IntegerField(primary_key=True)
     C_Name = models.CharField(max_length=255)
     C_Flavour = models.CharField(max_length=255)
-
 
 
 class Whiskey(models.Model):
