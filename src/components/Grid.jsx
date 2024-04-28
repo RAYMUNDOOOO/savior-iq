@@ -16,6 +16,9 @@ import { TileTable } from "../tables/tiles";
  * can selectively render tiles that also use that filter.
  */
 export function Grid({ appliedMode, appliedFilters }) {
+  // TODO: Needs to check appliedFilters against filters of tiles in TileTable.
+  // const [tiles, allocateTiles] = useState();
+  // const [filters, applyFilters] = useState(appliedFilters);
   var tiles = [];
   for (var i = 0; i < TileTable.length; i++) {
     var newTile = <Tile mode={appliedMode} img={TileTable[i].img} url={TileTable[i].url} filters={TileTable[i].filters} />

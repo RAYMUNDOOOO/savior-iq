@@ -5,7 +5,7 @@ import Guaiacol from "/src/assets/guaiacol.png";
 
 export const TileTable = [
     {
-        mode: true, img: [ BlackGate, Ethanol ], url: { whiskey: "/whiskey", compound: "/" },
+        img: [ BlackGate, Ethanol ], url: { whiskey: "/whiskey", compound: "/" },
         filters: {
             whiskey: {
                 region: ["Australia"],
@@ -18,7 +18,7 @@ export const TileTable = [
         }
     },
     {
-        mode: true, img: [ Benromach, Guaiacol ], url: { whiskey: "/whiskey", compound: "/" },
+        img: [ Benromach, Guaiacol ], url: { whiskey: "/whiskey", compound: "/" },
         filters: {
             whiskey: {
                 region: ["India"],

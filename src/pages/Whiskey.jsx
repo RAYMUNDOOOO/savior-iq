@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/NavBar";
 import SideFilter from "../components/SideFilter";
 import Toggle from "../components/Toggle";
+import Grid from "../components/Grid";
 
 function Whiskey() {
   let [state, setState] = React.useState({
@@ -42,6 +43,7 @@ function Whiskey() {
       <div style={{ textAlign: "left" }}>
         <SideFilter text={state.type ? "whiskey" : "chemistry"} />
         <Toggle change={handleChange} />
+        <Grid appliedMode={false}/>
       </div>
     </div>
   );
