@@ -1,13 +1,22 @@
 import React from "react";
+import { createContext } from "react";
+
 import Navbar from "../components/NavBar";
 import SideFilter from "../components/SideFilter";
 import Toggle from "../components/Toggle";
 import Grid from "../components/Grid";
 
+/*
+ * AppliedFiltersContext is a table of the filters that are currently
+ * selected in the SideFilter component. It is to be written to by 
+ * the SideFilter component and then passed to and read by the 
+ * Grid component.
+ */
+const AppliedFiltersContext = createContext(null);
+
 function Whiskey() {
-  let [state, setState] = React.useState({
-    type: false, // Initially set to false
-  });
+        let [state, setState] = React.useState({ type: false });
+        let [appliedFilters, setAppliedFilters] = React.useState({}) 
 
   // const handleChange = () => {
   //   // Toggle the value of whiskey
