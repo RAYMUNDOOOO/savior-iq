@@ -15,6 +15,7 @@ import {
   Select,
   TextField,
 } from "@mui/material";
+import { useContext } from "react";
 import { Add, Remove } from "@mui/icons-material";
 import { WhiskeyFilters, CompoundFilters } from "/src/tables/filters";
 
@@ -58,12 +59,16 @@ export default function SideFilter({ text }) {
             (value) => value !== event.target.value
           ),
     }));
-  };
 
+          // TODO: Add it to the context here.
+          setAppliedFilters(filterValues);
+  };
+        
   const handleResetAll = () => {
     setOpenFilters({});
     setFilterValues({});
   };
+
 
   return (
     <Box sx={{ bgcolor: "#F5F5F5", width: "212px", p: "24px" }}>

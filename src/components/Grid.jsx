@@ -7,6 +7,7 @@ import {
   Outlet,
   Link,
 } from "react-router-dom";
+import { useContext } from "react";
 import { TileTable } from "../tables/tiles";
 
 /*
@@ -26,6 +27,7 @@ export function Grid({ appliedMode, appliedFilters }) {
   }
 
   const tilesToRender = tiles.map((currentTile) => <div>{currentTile}</div>);
+        // TODO: Read the context from here and print it out.
   return (
     <div>
       {tilesToRender}
