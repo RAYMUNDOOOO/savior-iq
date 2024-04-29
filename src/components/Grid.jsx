@@ -28,7 +28,7 @@ export function Grid({ appliedMode, appliedFilters }) {
   const tilesToRender = tiles.map((currentTile) => <div>{currentTile}</div>);
   return (
     <div>
-      {tilesToRender};
+      {tilesToRender}
     </div>
   );
 }

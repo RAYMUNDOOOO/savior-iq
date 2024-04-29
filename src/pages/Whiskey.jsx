@@ -50,9 +50,11 @@ function Whiskey() {
       <h1>Whiskey Page</h1>
       <p>Welcome to the Whiskey page!</p>
       <div style={{ textAlign: "left" }}>
-        <SideFilter text={state.type ? "whiskey" : "chemistry"} />
         <Toggle change={handleChange} />
-        <Grid appliedMode={state.type} />
+          <AppliedFiltersContext.Provider value={appliedFilters}>
+                <SideFilter text={state.type ? "whiskey" : "chemistry"} />
+                <Grid appliedMode={state.type} />
+          </AppliedFiltersContext.Provider>
       </div>
     </div>
   );
