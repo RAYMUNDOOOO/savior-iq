@@ -59,20 +59,22 @@ function generateTiles(appliedMode, appliedFilters) {
                         />;
                         tiles.push(newTile);
                 }
-        }
+        } else if (appliedFilters != null && !appliedMode) {
+                console.log(appliedFilters);
+                for (var i = 0; i < TileTable.length; i++) { 
+                        if ("Flavour" in appliedFilters.filterValues) {
+                                if (!containsAll(TileTable[i].filters.compound.flavour, appliedFilters.filterValues.Flavour)) break;
+                        }
 
-        // Let's generate the tiles according to the appliedFilters.
-        /*
-        for (var i = 0; i < TileTable.length; i++) {
-                var newTile = <Tile 
-                        mode={appliedMode} 
-                        img={TileTable[i].img} 
-                        url={TileTable[i].url} 
-                        filters={TileTable[i].filters} 
-                />;
-                tiles.push(newTile);
+                        var newTile = <Tile 
+                                mode={appliedMode} 
+                                img={TileTable[i].img} 
+                                url={TileTable[i].url} 
+                                filters={TileTable[i].filters} 
+                        />;
+                        tiles.push(newTile);
+                }
         }
-        */
 
         return tiles;
 }
