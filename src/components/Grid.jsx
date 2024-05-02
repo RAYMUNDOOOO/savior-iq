@@ -20,7 +20,7 @@ import { AppliedFiltersContext } from "../pages/Whiskey";
 export function Grid({ appliedMode }) {
         let { appliedFilters, setAppliedFilters } = useContext(AppliedFiltersContext);
 
-        var tiles = generateTiles(appliedMode); 
+        var tiles = generateTiles(appliedMode, appliedFilters); 
         const tilesToRender = tiles.map((currentTile) => <>{currentTile}</>);
         return (
                 <div>
@@ -29,8 +29,40 @@ export function Grid({ appliedMode }) {
         );
 }
 
-function generateTiles(appliedMode) {
+function generateTiles(appliedMode, appliedFilters) {
         var tiles = [];
+
+        /*
+         * 1. Let's save the values that have been selected for each category.
+         * 2. Let's loop through each tile in TileTable.
+         *      2.1. Check if their properties can be found in each array of selected values.
+         * 3. If they can be found, generate the tile and push it to tiles[].
+         */
+        let containsAll = (source, target) => target.every(value => source.includes(value));
+        if (appliedFilters != null && appliedMode) {
+                for (var i = 0; i < TileTable.length; i++) { 
+                        if ("Region" in appliedFilters.filterValues) {
+                                if (!containsAll(TileTable[i].filters.whiskey.region, appliedFilters.filterValues.Region)) break;
+                        }
+                        if ("Flavour" in appliedFilters.filterValues) {
+                                if (!containsAll(TileTable[i].filters.whiskey.flavour, appliedFilters.filterValues.Flavour)) break;
+                        }
+                        if ("Brand" in appliedFilters.filterValues) {
+                                if (!containsAll(TileTable[i].filters.whiskey.brand, appliedFilters.filterValues.Brand)) break;
+                        }
+
+                        var newTile = <Tile 
+                                mode={appliedMode} 
+                                img={TileTable[i].img} 
+                                url={TileTable[i].url} 
+                                filters={TileTable[i].filters} 
+                        />;
+                        tiles.push(newTile);
+                }
+        }
+
+        // Let's generate the tiles according to the appliedFilters.
+        /*
         for (var i = 0; i < TileTable.length; i++) {
                 var newTile = <Tile 
                         mode={appliedMode} 
@@ -40,6 +72,7 @@ function generateTiles(appliedMode) {
                 />;
                 tiles.push(newTile);
         }
+        */
 
         return tiles;
 }
