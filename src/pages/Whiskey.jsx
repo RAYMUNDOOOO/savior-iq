@@ -12,11 +12,11 @@ import Grid from "../components/Grid";
  * the SideFilter component and then passed to and read by the 
  * Grid component.
  */
-const AppliedFiltersContext = createContext(null);
+export const AppliedFiltersContext = createContext(null);
 
 function Whiskey() {
         let [state, setState] = React.useState({ type: false });
-        let [appliedFilters, setAppliedFilters] = React.useState({}) 
+        const [appliedFilters, setAppliedFilters] = React.useState(null) 
 
   // const handleChange = () => {
   //   // Toggle the value of whiskey
@@ -51,7 +51,12 @@ function Whiskey() {
       <p>Welcome to the Whiskey page!</p>
       <div style={{ textAlign: "left" }}>
         <Toggle change={handleChange} />
-          <AppliedFiltersContext.Provider value={appliedFilters}>
+          <AppliedFiltersContext.Provider 
+                value={{
+                        appliedFilters,
+                        setAppliedFilters
+                }}
+          >
                 <SideFilter text={state.type ? "whiskey" : "chemistry"} />
                 <Grid appliedMode={state.type} />
           </AppliedFiltersContext.Provider>

@@ -18,16 +18,19 @@ import {
 import { useContext } from "react";
 import { Add, Remove } from "@mui/icons-material";
 import { WhiskeyFilters, CompoundFilters } from "/src/tables/filters";
+import { AppliedFiltersContext } from "../pages/Whiskey";
+
 
 export default function SideFilter({ text }) {
   let filters = [];
   if (text === "whiskey") {
-          filters = WhiskeyFilters;
+        filters = WhiskeyFilters;
   } else if (text === "chemistry") {
-    filters = CompoundFilters;
+        filters = CompoundFilters;
   }
   const [openFilters, setOpenFilters] = React.useState({});
   const [filterValues, setFilterValues] = React.useState({});
+        const { appliedFilters, setAppliedFilters } = useContext(AppliedFiltersContext);
 
   const handleToggleFilter = (filterLabel) => {
     setOpenFilters((prevOpenFilters) => ({
@@ -52,17 +55,12 @@ export default function SideFilter({ text }) {
 
   const handleCheckboxChange = (event) => {
     setFilterValues((prevFilterValues) => ({
-      ...prevFilterValues,
-      [event.target.name]: event.target.checked
-        ? [...(prevFilterValues[event.target.name] || []), event.target.value]
-        : prevFilterValues[event.target.name].filter(
-            (value) => value !== event.target.value
-          ),
+      ...prevFilterValues, [event.target.name]: event.target.checked ? [...(prevFilterValues[event.target.name] || []), event.target.value] : prevFilterValues[event.target.name].filter((value) => value !== event.target.value)
     }));
-
-          // TODO: Add it to the context here.
-          setAppliedFilters(filterValues);
+        setAppliedFilters({filterValues});
   };
+
+
         
   const handleResetAll = () => {
     setOpenFilters({});

@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import { useContext } from "react";
 import { TileTable } from "../tables/tiles";
+import { AppliedFiltersContext } from "../pages/Whiskey";
 
 /*
  * The toggle switch component will pass down its state into the Grid, 
@@ -16,10 +17,8 @@ import { TileTable } from "../tables/tiles";
  * needs to pass in which filters are currently being applied so that we 
  * can selectively render tiles that also use that filter.
  */
-export function Grid({ appliedMode, appliedFilters }) {
-  // TODO: Needs to check appliedFilters against filters of tiles in TileTable.
-  // const [tiles, allocateTiles] = useState();
-  // const [filters, applyFilters] = useState(appliedFilters);
+export function Grid({ appliedMode }) {
+        let { appliedFilters, setAppliedFilters } = useContext(AppliedFiltersContext);
   var tiles = [];
   for (var i = 0; i < TileTable.length; i++) {
     var newTile = <Tile mode={appliedMode} img={TileTable[i].img} url={TileTable[i].url} filters={TileTable[i].filters} />
@@ -28,6 +27,10 @@ export function Grid({ appliedMode, appliedFilters }) {
 
   const tilesToRender = tiles.map((currentTile) => <div>{currentTile}</div>);
         // TODO: Read the context from here and print it out.
+        if (appliedFilters != null && Object.keys(appliedFilters).length > 0) {
+                console.log(appliedFilters.filterValues.Region)
+        }
+
   return (
     <div>
       {tilesToRender}
