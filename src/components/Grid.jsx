@@ -19,23 +19,29 @@ import { AppliedFiltersContext } from "../pages/Whiskey";
  */
 export function Grid({ appliedMode }) {
         let { appliedFilters, setAppliedFilters } = useContext(AppliedFiltersContext);
-  var tiles = [];
-  for (var i = 0; i < TileTable.length; i++) {
-    var newTile = <Tile mode={appliedMode} img={TileTable[i].img} url={TileTable[i].url} filters={TileTable[i].filters} />
-    tiles.push(newTile);
-  }
 
-  const tilesToRender = tiles.map((currentTile) => <div>{currentTile}</div>);
-        // TODO: Read the context from here and print it out.
-        if (appliedFilters != null && Object.keys(appliedFilters).length > 0) {
-                console.log(appliedFilters.filterValues.Region)
+        var tiles = generateTiles(appliedMode); 
+        const tilesToRender = tiles.map((currentTile) => <>{currentTile}</>);
+        return (
+                <div>
+                {tilesToRender}
+                </div>
+        );
+}
+
+function generateTiles(appliedMode) {
+        var tiles = [];
+        for (var i = 0; i < TileTable.length; i++) {
+                var newTile = <Tile 
+                        mode={appliedMode} 
+                        img={TileTable[i].img} 
+                        url={TileTable[i].url} 
+                        filters={TileTable[i].filters} 
+                />;
+                tiles.push(newTile);
         }
 
-  return (
-    <div>
-      {tilesToRender}
-    </div>
-  );
+        return tiles;
 }
 
 /*
