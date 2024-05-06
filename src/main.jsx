@@ -12,6 +12,7 @@ import Contact from "./pages/Contact.jsx";
 // import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import InnerWhiskey from "./pages/InnerWhiskey.jsx";
+import Flavour from "./pages/Flavour.jsx";
 
 const router = createBrowserRouter([
   {
@@ -35,32 +36,8 @@ const router = createBrowserRouter([
     element: <InnerWhiskey />,
   },
   {
-    path: "/flavour/floral",
-    element: <Contact />,
-  },
-  {
-    path: "/flavour/fruity",
-    element: <Contact />,
-  },
-  {
-    path: "/flavour/herbal",
-    element: <Contact />,
-  },
-  {
-    path: "/flavour/peaty",
-    element: <Contact />,
-  },
-  {
-    path: "/flavour/smokey",
-    element: <Contact />,
-  },
-  {
-    path: "/flavour/spicy",
-    element: <Contact />,
-  },
-  {
-    path: "/flavour/sweet",
-    element: <Contact />,
+    path: "/flavour/:type",
+    element: <Flavour />,
   },
 ]);
 
