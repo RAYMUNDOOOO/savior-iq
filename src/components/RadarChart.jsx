@@ -9,9 +9,10 @@ import {
   LineElement,
   registerables,
 } from "chart.js";
+// import { myChart } from "chart.js";
+
 import { Interaction } from "chart.js";
 import { getRelativePosition } from "chart.js/helpers";
-// import { data as methods } from "../chemicals/0.json";
 
 // Chart.register(
 //   CategoryScale,
@@ -36,8 +37,8 @@ Interaction.modes.myCustomMode = function (
   useFinalPosition
 ) {
   const position = getRelativePosition(e, chart);
-
   const items = [];
+
   Interaction.evaluateInteractionItems(
     chart,
     "x",
@@ -51,49 +52,38 @@ Interaction.modes.myCustomMode = function (
       }
     }
   );
+  console.log("items", items);
   return items;
 };
 
 export const RadarChart = ({ data }) => {
+  // const options = {};
   const options = {
-    onClick: (e) => {
-      // Log the event object to inspect its properties
-      console.log("Click event:", e);
+    onClick: (evt, activeEls, chart) => {
+      const { x, y } = evt;
+      let index = -1;
 
-      // Get the clicked elements using the custom interaction mode
-      const clickedElements = chartInstance.getElementsAtEventForMode(
-        e,
-        "myCustomMode",
-        { intersect: true }
-      );
+      for (let i = 0; i < chart.scales.r._pointLabelItems.length; i++) {
+        const { bottom, top, left, right } = chart.scales.r._pointLabelItems[i];
 
-      // Log the clicked elements to inspect
-      console.log("Clicked elements:", clickedElements);
-
-      if (clickedElements.length > 0) {
-        // Extract dataset index and index of the clicked point
-        const clickedDatasetIndex = clickedElements[0]?.datasetIndex;
-        const clickedIndex = clickedElements[0]?.index;
-
-        console.log("Clicked dataset index:", clickedDatasetIndex);
-        console.log("Clicked index:", clickedIndex);
-
-        // Retrieve clicked data from the data object
-        const clickedData =
-          data.datasets[clickedDatasetIndex]?.data[clickedIndex];
-        console.log("Clicked data:", clickedData);
-
-        // Navigate to a different page based on the clicked data
-        // Replace this with your actual navigation logic
-        // history.push(`/details/${clickedData}`);
-      } else {
-        console.log("No data clicked.");
+        if (x >= left && x <= right && y >= top && y <= bottom) {
+          index = i;
+          break;
+        }
       }
+
+      if (index === -1) {
+        return;
+      }
+
+      const clickedLabel = chart.scales.r._pointLabels[index];
+      console.log("Clicked label:", clickedLabel);
+      window.location = `/flavour/${clickedLabel}`;
     },
   };
 
   const [chartInstance, setChartInstance] = useState(null);
-
+  // this.radarRef = {};
   useEffect(() => {
     // Destroy the previous chart instance before rendering a new one
     if (chartInstance) {
@@ -126,20 +116,10 @@ export const RadarChart = ({ data }) => {
   ) {
     return <div>No data available</div>;
   }
-  const handlePointClick = (event, elements) => {
-    console.log("Click event:", event);
-    console.log("Clicked elements:", elements);
-
-    if (elements.length > 0) {
-      const clickedDatasetIndex = elements[0].datasetIndex;
-      const clickedElementIndex = elements[0].index;
-      console.log("Clicked dataset index:", clickedDatasetIndex);
-      console.log("Clicked element index:", clickedElementIndex);
-    }
-  };
 
   return (
     <Radar
+      // ref={(radarRef) => (this.radarRef = radarRef)}
       options={options}
       data={data}
       getElementAtEvent={(elements, event) => handlePointClick(event, elements)}

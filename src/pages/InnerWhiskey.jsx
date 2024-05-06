@@ -70,7 +70,11 @@ function InnerWhiskey() {
       <Navbar />
       <h1>Inner Whiskey Page</h1>
       <p>Welcome to the Inner Whiskey {params.id} page!</p>
-      <div id="radar-chart" style={{ height: "40vh", width: "80vw" }}>
+      <div
+        id="radar-chart"
+        inputMode="myCustomMode"
+        style={{ height: "40vh", width: "80vw" }}
+      >
         {data && (
           <RadarChart
             data={data[params.id] != undefined ? data[params.id] : data[0]}
