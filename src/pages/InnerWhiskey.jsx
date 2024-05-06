@@ -47,6 +47,9 @@ function InnerWhiskey() {
     fetchData();
   }, [params.id]);
 
+  if (data[params.id] === undefined) {
+  }
+
   console.log(getData(params.id));
   console.log(params.id);
 
@@ -70,7 +73,7 @@ function InnerWhiskey() {
       <div id="radar-chart" style={{ height: "40vh", width: "80vw" }}>
         {data && (
           <RadarChart
-            data={data[params.id]}
+            data={data[params.id] != undefined ? data[params.id] : data[0]}
             options={{
               onClick: handlePointClick,
             }}
