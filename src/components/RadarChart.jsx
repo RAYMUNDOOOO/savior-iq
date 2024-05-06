@@ -58,6 +58,7 @@ Interaction.modes.myCustomMode = function (
 
 export const RadarChart = ({ data }) => {
   // const options = {};
+  //https://stackoverflow.com/questions/29973533/chart-js-turn-labels-into-links
   const options = {
     onClick: (evt, activeEls, chart) => {
       const { x, y } = evt;

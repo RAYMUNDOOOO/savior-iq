@@ -34,6 +34,34 @@ const router = createBrowserRouter([
     path: "/whiskey/:id",
     element: <InnerWhiskey />,
   },
+  {
+    path: "/flavour/floral",
+    element: <Contact />,
+  },
+  {
+    path: "/flavour/fruity",
+    element: <Contact />,
+  },
+  {
+    path: "/flavour/herbal",
+    element: <Contact />,
+  },
+  {
+    path: "/flavour/peaty",
+    element: <Contact />,
+  },
+  {
+    path: "/flavour/smokey",
+    element: <Contact />,
+  },
+  {
+    path: "/flavour/spicy",
+    element: <Contact />,
+  },
+  {
+    path: "/flavour/sweet",
+    element: <Contact />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
