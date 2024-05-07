@@ -5,22 +5,23 @@ import SideFilter from "../components/SideFilter";
 import { useParams } from "react-router-dom";
 import { RadarChart } from "../components/RadarChart";
 import { Radar } from "react-chartjs-2";
-import { getData } from "../tables/whiskey";
+import { getData } from "../tables/flavour";
 import { getImageURL } from "../utils/image-util";
 
 function Flavour() {
   const params = useParams();
+  const [flavorData, setFlavorData] = useState(null);
 
-  const [data, setData] = useState(getData());
-  // const data = getData();
-
-  //fetch data asynchronously when the component mounts or when the 'params.type' value changes
-  //re-run whenever the 'params.type' value changes
+  // Fetch data asynchronously when the component mounts
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const fetchedData = await getData();
-        setData(fetchedData);
+        const data = await getData();
+        console.log("Data:", data);
+        // Find the object in the data array that matches the labels value in params
+        const flavor = data.find((flavor) => flavor.labels === params.type);
+        console.log("Flavour:", flavor);
+        setFlavorData(flavor);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -29,10 +30,10 @@ function Flavour() {
     fetchData();
   }, [params.type]);
 
-  // if (data[params.type] === undefined) {
-  // }
-
-  console.log(params.type);
+  if (!flavorData) {
+    return <div>Loading...</div>;
+  }
+  console.log("Flavour data:", flavorData.description);
 
   return (
     <div>
@@ -40,6 +41,7 @@ function Flavour() {
       <h1>Flavour Page</h1>
       <p>Welcome to the Flavour: {params.type} page!</p>
       <img src={getImageURL(params.type)} alt={params.type} />
+      <p>Description: {flavorData.description}</p>
     </div>
   );
 }

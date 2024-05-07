@@ -7,7 +7,7 @@ const data = [
   {
     //1
     labels: "Smokey",
-    dscription: "Guaiacol",
+    description: "Guaiacol",
   },
   {
     //2
