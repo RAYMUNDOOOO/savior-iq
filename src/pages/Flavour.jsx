@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { RadarChart } from "../components/RadarChart";
 import { Radar } from "react-chartjs-2";
 import { getData } from "../tables/whiskey";
+import { getImageURL } from "../utils/image-util";
 
 function Flavour() {
   const params = useParams();
@@ -28,10 +29,9 @@ function Flavour() {
     fetchData();
   }, [params.type]);
 
-  if (data[params.type] === undefined) {
-  }
+  // if (data[params.type] === undefined) {
+  // }
 
-  console.log(getData(params.type));
   console.log(params.type);
 
   return (
@@ -39,6 +39,7 @@ function Flavour() {
       <Navbar />
       <h1>Flavour Page</h1>
       <p>Welcome to the Flavour: {params.type} page!</p>
+      <img src={getImageURL(params.type)} alt={params.type} />
     </div>
   );
 }
