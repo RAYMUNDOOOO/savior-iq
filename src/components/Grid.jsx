@@ -129,11 +129,11 @@ export function Tile({ mode, img, url, filters })  {
   return (
     <div className="tile">
       {mode ? (
-        <Link to={url.whiskey.url}>
+        <Link to={url.whiskey}>
           <img src={img[0]}></img>
         </Link>
       ) : (
-        <Link to={url.compound.url}>
+        <Link to={url.compound}>
           <img src={img[1]}></img>
         </Link>
       )}
