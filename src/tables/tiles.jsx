@@ -42,6 +42,7 @@ export const TileTable = [
             whiskey: {
                 region: ["Scotland"],
                 flavour: ["Sweet", "Spicy"],
+
                 brand: ["Ardbeg"]
             },
             compound: {
@@ -50,6 +51,7 @@ export const TileTable = [
         }
     },
     {
+
         img: [ Cotswolds, Guaiacol ], url: { whiskey: "/whiskey/1293213", compound: "/flavour/Sweet" },
         filters: {
             whiskey: {
@@ -63,6 +65,7 @@ export const TileTable = [
         }
     },
     {
+
         img: [ Elements, Ethanol ], url: { whiskey: "/whiskey/1293213", compound: "/flavour/Smokey" },
         filters: {
             whiskey: {
@@ -76,6 +79,7 @@ export const TileTable = [
         }
     },
     {
+
         img: [ gM, otherCompound ], url: { whiskey: "/whiskey/0984092143", compound: "/flavour/Peaty" },
         filters: {
             whiskey: {

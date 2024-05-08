@@ -31,6 +31,7 @@ function generateTiles(appliedMode, appliedFilters) {
         var tiles = [];
         var render = true;
 
+
         /*
          * 1. Let's save the values that have been selected for each category.
          * 2. Let's loop through each tile in TileTable.
@@ -91,6 +92,7 @@ function generateTiles(appliedMode, appliedFilters) {
                 console.log(appliedFilters);
                 for (var i = 0; i < TileTable.length; i++) { 
                         if ("Flavour" in appliedFilters.filterValues) {
+
                                 if (appliedFilters.filterValues.Flavour.length === TileTable[i].filters.compound.flavour.length ||
                                         appliedFilters.filterValues.Flavour.length < TileTable[i].filters.compound.flavour.length) {
                                         for (var j = 0; j < appliedFilters.filterValues.Flavour.length; j++) {
@@ -99,6 +101,7 @@ function generateTiles(appliedMode, appliedFilters) {
                                 }
 
                                 if (appliedFilters.filterValues.Flavour.length > TileTable[i].filters.compound.flavour.length) render = false;
+
                         }
 
                         var newTile = <Tile 
@@ -108,8 +111,8 @@ function generateTiles(appliedMode, appliedFilters) {
                                 filters={TileTable[i].filters} 
                         />;
                         tiles.push(newTile);
-
                         render = true;
+
                 }
         }
 

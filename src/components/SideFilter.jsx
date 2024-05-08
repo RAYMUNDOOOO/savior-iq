@@ -142,28 +142,34 @@ export default function SideFilter({ text }) {
               {filter.type === "checkbox" && (
                 <List component="div" disablePadding sx={{ pl: 0 }}>
                   {filter.options.map((option) => (
-                    <ListItem key={option} button sx={{ pl: 3 }}>
-                      <Checkbox
-                        checked={
-                          (Array.isArray(filterValues[filter.label]) &&
-                            filterValues[filter.label].includes(option)) ||
-                          false
-                        }
-                        defaultChecked
-                        size="small"
-                        onChange={handleCheckboxChange}
-                        name={filter.label}
-                        value={option}
-                        sx={{
-                          "&.Mui-checked": {
-                            color: "orange",
-                          },
-                          "&.MuiCheckbox-root": {
-                            padding: 0,
-                          },
-                        }}
-                      />
-                      <ListItemText primary={option} />
+                    <ListItem key={option} sx={{ pl: 3 }}>
+                      <label
+                        htmlFor={`${filter.label}-${option}`}
+                        style={{ display: "flex", alignItems: "center" }}
+                      >
+                        <Checkbox
+                          id={`${filter.label}-${option}`}
+                          checked={
+                            (Array.isArray(filterValues[filter.label]) &&
+                              filterValues[filter.label].includes(option)) ||
+                            false
+                          }
+                          defaultChecked
+                          size="small"
+                          onChange={handleCheckboxChange}
+                          name={filter.label}
+                          value={option}
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "orange",
+                            },
+                            "&.MuiCheckbox-root": {
+                              padding: 0,
+                            },
+                          }}
+                        />
+                        <ListItemText primary={option} />
+                      </label>
                     </ListItem>
                   ))}
                 </List>
