@@ -11,7 +11,7 @@ import otherCompound from "/src/assets/compond3.jpg";
 
 export const TileTable = [
     {
-        img: [ BlackGate, Ethanol ], url: { whiskey: "/whiskey", compound: "/" },
+        img: [ BlackGate, Ethanol ], url: { whiskey: "/whiskey/1234", compound: "/flavour/Herbal" },
         filters: {
             whiskey: {
                 region: ["Australia"],
@@ -24,11 +24,11 @@ export const TileTable = [
         }
     },
     {
-        img: [ Benromach, Guaiacol ], url: { whiskey: "/whiskey", compound: "/" },
+        img: [ Benromach, Guaiacol ], url: { whiskey: "/whiskey/1235", compound: "/flavour/Fruity" },
         filters: {
             whiskey: {
                 region: ["Scotland"],
-                flavour: ["Sweet", "Smokey", "Herbal"],
+                flavour: ["Fruity", "Spicy"],
                 brand: ["Benromach"]
             },
             compound: {
@@ -37,11 +37,11 @@ export const TileTable = [
         }
     },
     {
-        img: [ Ardbeg, otherCompound ], url: { whiskey: "/whiskey", compound: "/" },
+        img: [ Ardbeg, otherCompound ], url: { whiskey: "/whiskey/1236", compound: "/flavour/Spicy" },
         filters: {
             whiskey: {
                 region: ["Scotland"],
-                flavour: ["Sweet", "Smokey", "Herbal"],
+                flavour: ["Sweet", "Spicy"],
                 brand: ["Ardbeg"]
             },
             compound: {
@@ -50,7 +50,7 @@ export const TileTable = [
         }
     },
     {
-        img: [ Cotswolds, Guaiacol ], url: { whiskey: "/whiskey", compound: "/" },
+        img: [ Cotswolds, Guaiacol ], url: { whiskey: "/whiskey/1293213", compound: "/flavour/Sweet" },
         filters: {
             whiskey: {
                 region: ["Rest of the world"],
@@ -63,7 +63,7 @@ export const TileTable = [
         }
     },
     {
-        img: [ Elements, Ethanol ], url: { whiskey: "/whiskey", compound: "/" },
+        img: [ Elements, Ethanol ], url: { whiskey: "/whiskey/1293213", compound: "/flavour/Smokey" },
         filters: {
             whiskey: {
                 region: ["Rest of the world"],
@@ -76,7 +76,7 @@ export const TileTable = [
         }
     },
     {
-        img: [ gM, otherCompound ], url: { whiskey: "/whiskey", compound: "/" },
+        img: [ gM, otherCompound ], url: { whiskey: "/whiskey/0984092143", compound: "/flavour/Peaty" },
         filters: {
             whiskey: {
                 region: ["Scotland"],
@@ -89,7 +89,7 @@ export const TileTable = [
         }
     },
     {
-        img: [ Glendronach, Guaiacol ], url: { whiskey: "/whiskey", compound: "/" },
+        img: [ Glendronach, Guaiacol ], url: { whiskey: "/whiskey/12392193", compound: "/flavour/Floral" },
         filters: {
             whiskey: {
                 region: ["Scotland"],
