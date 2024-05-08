@@ -35,11 +35,14 @@ function Flavour() {
   return (
     <div>
       <Navbar />
-      <h1>Flavour Page</h1>
-      <p>Welcome to the Flavour: {params.type} page!</p>
+      <h1>{params.type}</h1>
       <img src={getImageURL(params.type)} alt={params.type} />
-      <p>Description: </p>
+      <br></br>
+      <b>Chemical Name: </b>
+      <p>{flavorData.chemical}</p>
+      <b>Description: </b>
       <p>{flavorData.description}</p>
+      
     </div>
   );
 }

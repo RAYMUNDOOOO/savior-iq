@@ -13,7 +13,7 @@ const data = [
     datasets: [
       {
         label: "Bottle 0",
-        data: [65, 59, 90, 81, 56, 55, 40],
+        data: generateRandomData(),
         fill: true,
         backgroundColor: "rgba(215, 130, 90, 0.5)",
         borderColor: "rgb(215, 130, 90)",
