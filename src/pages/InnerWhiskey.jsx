@@ -5,43 +5,7 @@ import SideFilter from "../components/SideFilter";
 import { useParams } from "react-router-dom";
 import { RadarChart } from "../components/RadarChart";
 import { Radar } from "react-chartjs-2";
-// import data from "../chemicals/0.jsx";
-
-const data = {
-  labels: [
-    "Eating",
-    "Drinking",
-    "Sleeping",
-    "Designing",
-    "Coding",
-    "Cycling",
-    "Running",
-  ],
-  datasets: [
-    {
-      label: "My First Dataset",
-      data: [65, 59, 90, 81, 56, 55, 40],
-      fill: true,
-      backgroundColor: "rgba(255, 99, 132, 0.2)",
-      borderColor: "rgb(255, 99, 132)",
-      pointBackgroundColor: "rgb(255, 99, 132)",
-      pointBorderColor: "#fff",
-      pointHoverBackgroundColor: "#fff",
-      pointHoverBorderColor: "rgb(255, 99, 132)",
-    },
-    {
-      label: "My Second Dataset",
-      data: [28, 48, 40, 19, 96, 27, 100],
-      fill: true,
-      backgroundColor: "rgba(54, 162, 235, 0.2)",
-      borderColor: "rgb(54, 162, 235)",
-      pointBackgroundColor: "rgb(54, 162, 235)",
-      pointBorderColor: "#fff",
-      pointHoverBackgroundColor: "#fff",
-      pointHoverBorderColor: "rgb(54, 162, 235)",
-    },
-  ],
-};
+import { getData } from "../tables/whiskey";
 
 function InnerWhiskey() {
   const params = useParams();
@@ -65,6 +29,30 @@ function InnerWhiskey() {
   // }, [params.id]);
   // const history = useHistory();
 
+  const [data, setData] = useState(getData());
+  // const data = getData();
+
+  //fetch data asynchronously when the component mounts or when the 'params.id' value changes
+  //re-run whenever the 'params.id' value changes
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const fetchedData = await getData();
+        setData(fetchedData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, [params.id]);
+
+  if (data[params.id] === undefined) {
+  }
+
+  console.log(getData(params.id));
+  console.log(params.id);
+
   const handlePointClick = (event, elements) => {
     if (elements.length > 0) {
       const clickedDatasetIndex = elements[0].datasetIndex;
@@ -82,10 +70,14 @@ function InnerWhiskey() {
       <Navbar />
       <h1>Inner Whiskey Page</h1>
       <p>Welcome to the Inner Whiskey {params.id} page!</p>
-      <div id="radar-chart" style={{ height: "40vh", width: "80vw" }}>
+      <div
+        id="radar-chart"
+        inputMode="myCustomMode"
+        style={{ height: "40vh", width: "80vw" }}
+      >
         {data && (
           <RadarChart
-            data={data}
+            data={data[params.id] != undefined ? data[params.id] : data[0]}
             options={{
               onClick: handlePointClick,
             }}
