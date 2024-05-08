@@ -32,7 +32,7 @@ function Navbar() {
         <nav className={`${styles.navbar}`}>
           {/* logo */}
           <Link to="/" className={`${styles.logo}`}>
-            <span>The Oracle</span>
+            <span>The Oracle </span>
           </Link>
           <ul className={`${styles.navMenu} ${isActive ? styles.active : ""}`}>
             <li onClick={removeActive}>

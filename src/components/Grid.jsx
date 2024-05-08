@@ -7,7 +7,9 @@ import {
   Outlet,
   Link,
 } from "react-router-dom";
+import { useContext } from "react";
 import { TileTable } from "../tables/tiles";
+import { AppliedFiltersContext } from "../pages/Whiskey";
 
 /*
  * The toggle switch component will pass down its state into the Grid, 
@@ -15,22 +17,64 @@ import { TileTable } from "../tables/tiles";
  * needs to pass in which filters are currently being applied so that we 
  * can selectively render tiles that also use that filter.
  */
-export function Grid({ appliedMode, appliedFilters }) {
-  // TODO: Needs to check appliedFilters against filters of tiles in TileTable.
-  // const [tiles, allocateTiles] = useState();
-  // const [filters, applyFilters] = useState(appliedFilters);
-  var tiles = [];
-  for (var i = 0; i < TileTable.length; i++) {
-    var newTile = <Tile mode={appliedMode} img={TileTable[i].img} url={TileTable[i].url} filters={TileTable[i].filters} />
-    tiles.push(newTile);
-  }
+export function Grid({ appliedMode }) {
+        let { appliedFilters, setAppliedFilters } = useContext(AppliedFiltersContext);
 
-  const tilesToRender = tiles.map((currentTile) => <div>{currentTile}</div>);
-  return (
-    <div>
-      {tilesToRender};
-    </div>
-  );
+        var tiles = generateTiles(appliedMode, appliedFilters); 
+        const tilesToRender = tiles.map((currentTile) => <>{currentTile}</>);
+        return (
+                <div>{tilesToRender}</div>
+        );
+}
+
+function generateTiles(appliedMode, appliedFilters) {
+        var tiles = [];
+
+        /*
+         * 1. Let's save the values that have been selected for each category.
+         * 2. Let's loop through each tile in TileTable.
+         *      2.1. Check if their properties can be found in each array of selected values.
+         * 3. If they can be found, generate the tile and push it to tiles[].
+         */
+        let containsAll = (source, target) => target.every(value => source.includes(value));
+        if (appliedFilters != null && appliedMode) {
+                for (var i = 0; i < TileTable.length; i++) { 
+                        if ("Region" in appliedFilters.filterValues) {
+                                if (!containsAll(TileTable[i].filters.whiskey.region, appliedFilters.filterValues.Region)) break;
+                        }
+                        if ("Flavour" in appliedFilters.filterValues) {
+                                if (!containsAll(TileTable[i].filters.whiskey.flavour, appliedFilters.filterValues.Flavour)) break;
+                        }
+                        if ("Brand" in appliedFilters.filterValues) {
+                                if (!containsAll(TileTable[i].filters.whiskey.brand, appliedFilters.filterValues.Brand)) break;
+                        }
+
+                        var newTile = <Tile 
+                                mode={appliedMode} 
+                                img={TileTable[i].img} 
+                                url={TileTable[i].url} 
+                                filters={TileTable[i].filters} 
+                        />;
+                        tiles.push(newTile);
+                }
+        } else if (appliedFilters != null && !appliedMode) {
+                console.log(appliedFilters);
+                for (var i = 0; i < TileTable.length; i++) { 
+                        if ("Flavour" in appliedFilters.filterValues) {
+                                if (!containsAll(TileTable[i].filters.compound.flavour, appliedFilters.filterValues.Flavour)) break;
+                        }
+
+                        var newTile = <Tile 
+                                mode={appliedMode} 
+                                img={TileTable[i].img} 
+                                url={TileTable[i].url} 
+                                filters={TileTable[i].filters} 
+                        />;
+                        tiles.push(newTile);
+                }
+        }
+
+        return tiles;
 }
 
 /*

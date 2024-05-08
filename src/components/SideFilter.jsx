@@ -15,155 +15,22 @@ import {
   Select,
   TextField,
 } from "@mui/material";
+import { useContext } from "react";
 import { Add, Remove } from "@mui/icons-material";
+import { WhiskeyFilters, CompoundFilters } from "/src/tables/filters";
+import { AppliedFiltersContext } from "../pages/Whiskey";
 
-//whiskey filers
-// const filters = [
-//   // {
-//   //   label: "Whiskey Bottle",
-//   //   type: "autocomplete",
-//   //   options: ["Lorem ipsum", "Lorem ipsum"],
-//   // },
-//   {
-//     label: "Region",
-//     type: "checkbox",
-//     options: [
-//       "Australia",
-//       "India",
-//       "Ireland",
-//       "Japan",
-//       "Scotland",
-//       "United States",
-//       "Taiwan",
-//       "Rest of the world",
-//     ],
-//   },
-//   {
-//     label: "Flavour",
-//     type: "checkbox",
-//     options: [
-//       "Sweet",
-//       "Smokey",
-//       "Floral",
-//       "Fruity",
-//       "Spicy",
-//       "Herbal",
-//       "Peaty",
-//     ],
-//   },
-//   {
-//     label: "Brand",
-//     type: "checkbox",
-//     options: [
-//       "Ardbeg",
-//       "BenRiach",
-//       "Benromach",
-//       "Black Gate",
-//       "Cotswolds",
-//       "Elements of Islay",
-//       "G&M",
-//       "Glendronach",
-//     ],
-//   },
-// ];
-
-//chemical filters
-// const filters = [
-//   {
-//     label: "Flavour",
-//     type: "checkbox",
-//     options: [
-//       "Sweet",
-//       "Smokey",
-//       "Floral",
-//       "Fruity",
-//       "Spicy",
-//       "Herbal",
-//       "Peaty",
-//     ],
-//   },
-//   {
-//     label: "Sort",
-//     type: "select",
-//     options: ["Alphabetically", "By Relevance", "Most Recent", "Most Popular"],
-//   },
-// ];
 
 export default function SideFilter({ text }) {
   let filters = [];
   if (text === "whiskey") {
-    filters = [
-      {
-        label: "Region",
-        type: "checkbox",
-        options: [
-          "Australia",
-          "India",
-          "Ireland",
-          "Japan",
-          "Scotland",
-          "United States",
-          "Taiwan",
-          "Rest of the world",
-        ],
-      },
-      {
-        label: "Flavour",
-        type: "checkbox",
-        options: [
-          "Sweet",
-          "Smokey",
-          "Floral",
-          "Fruity",
-          "Spicy",
-          "Herbal",
-          "Peaty",
-        ],
-      },
-      {
-        label: "Brand",
-        type: "checkbox",
-        options: [
-          "Ardbeg",
-          "BenRiach",
-          "Benromach",
-          "Black Gate",
-          "Cotswolds",
-          "Elements of Islay",
-          "G&M",
-          "Glendronach",
-        ],
-      },
-    ];
+        filters = WhiskeyFilters;
   } else if (text === "chemistry") {
-    filters = [
-      {
-        label: "Flavour",
-        type: "checkbox",
-        options: [
-          "Sweet",
-          "Smokey",
-          "Floral",
-          "Fruity",
-          "Spicy",
-          "Herbal",
-          "Peaty",
-        ],
-      },
-      {
-        label: "Sort",
-        type: "select",
-        options: [
-          "Alphabetically",
-          "By Relevance",
-          "Most Recent",
-          "Most Popular",
-        ],
-      },
-    ];
+        filters = CompoundFilters;
   }
   const [openFilters, setOpenFilters] = React.useState({});
   const [filterValues, setFilterValues] = React.useState({});
+        const { appliedFilters, setAppliedFilters } = useContext(AppliedFiltersContext);
 
   const handleToggleFilter = (filterLabel) => {
     setOpenFilters((prevOpenFilters) => ({
@@ -188,19 +55,18 @@ export default function SideFilter({ text }) {
 
   const handleCheckboxChange = (event) => {
     setFilterValues((prevFilterValues) => ({
-      ...prevFilterValues,
-      [event.target.name]: event.target.checked
-        ? [...(prevFilterValues[event.target.name] || []), event.target.value]
-        : prevFilterValues[event.target.name].filter(
-            (value) => value !== event.target.value
-          ),
+      ...prevFilterValues, [event.target.name]: event.target.checked ? [...(prevFilterValues[event.target.name] || []), event.target.value] : prevFilterValues[event.target.name].filter((value) => value !== event.target.value)
     }));
+        setAppliedFilters({filterValues});
   };
 
+
+        
   const handleResetAll = () => {
     setOpenFilters({});
     setFilterValues({});
   };
+
 
   return (
     <Box sx={{ bgcolor: "#F5F5F5", width: "212px", p: "24px" }}>
@@ -276,28 +142,34 @@ export default function SideFilter({ text }) {
               {filter.type === "checkbox" && (
                 <List component="div" disablePadding sx={{ pl: 0 }}>
                   {filter.options.map((option) => (
-                    <ListItem key={option} button sx={{ pl: 3 }}>
-                      <Checkbox
-                        checked={
-                          (Array.isArray(filterValues[filter.label]) &&
-                            filterValues[filter.label].includes(option)) ||
-                          false
-                        }
-                        defaultChecked
-                        size="small"
-                        onChange={handleCheckboxChange}
-                        name={filter.label}
-                        value={option}
-                        sx={{
-                          "&.Mui-checked": {
-                            color: "orange",
-                          },
-                          "&.MuiCheckbox-root": {
-                            padding: 0,
-                          },
-                        }}
-                      />
-                      <ListItemText primary={option} />
+                    <ListItem key={option} sx={{ pl: 3 }}>
+                      <label
+                        htmlFor={`${filter.label}-${option}`}
+                        style={{ display: "flex", alignItems: "center" }}
+                      >
+                        <Checkbox
+                          id={`${filter.label}-${option}`}
+                          checked={
+                            (Array.isArray(filterValues[filter.label]) &&
+                              filterValues[filter.label].includes(option)) ||
+                            false
+                          }
+                          defaultChecked
+                          size="small"
+                          onChange={handleCheckboxChange}
+                          name={filter.label}
+                          value={option}
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "orange",
+                            },
+                            "&.MuiCheckbox-root": {
+                              padding: 0,
+                            },
+                          }}
+                        />
+                        <ListItemText primary={option} />
+                      </label>
                     </ListItem>
                   ))}
                 </List>
