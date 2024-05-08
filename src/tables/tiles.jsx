@@ -10,99 +10,103 @@ import Glendronach from "/src/assets/glendronach.jpeg";
 import otherCompound from "/src/assets/compond3.jpg";
 
 export const TileTable = [
-    {
-        img: [ BlackGate, Ethanol ], url: { whiskey: "/whiskey/1234", compound: "/flavour/Herbal" },
-        filters: {
-            whiskey: {
-                region: ["Australia"],
-                flavour: ["Sweet", "Floral"],
-                brand: ["Black Gate"]
-            },
-            compound: {
-                flavour: [ "Sweet", "Floral" ]
-            }
-        }
+  {
+    img: [BlackGate, Ethanol],
+    url: { whiskey: "/whiskey/BlackGate", compound: "/flavour/Herbal" },
+    filters: {
+      whiskey: {
+        region: ["Australia"],
+        flavour: ["Sweet", "Floral"],
+        brand: ["Black Gate"],
+      },
+      compound: {
+        flavour: ["Sweet", "Floral"],
+      },
     },
-    {
-        img: [ Benromach, Guaiacol ], url: { whiskey: "/whiskey/1235", compound: "/flavour/Fruity" },
-        filters: {
-            whiskey: {
-                region: ["Scotland"],
-                flavour: ["Fruity", "Spicy"],
-                brand: ["Benromach"]
-            },
-            compound: {
-                flavour: ["Sweet", "Smokey", "Herbal"]
-            }
-        }
+  },
+  {
+    img: [Benromach, Guaiacol],
+    url: { whiskey: "/whiskey/Benromach", compound: "/flavour/Fruity" },
+    filters: {
+      whiskey: {
+        region: ["Scotland"],
+        flavour: ["Fruity", "Spicy"],
+        brand: ["Benromach"],
+      },
+      compound: {
+        flavour: ["Sweet", "Smokey", "Herbal"],
+      },
     },
-    {
-        img: [ Ardbeg, otherCompound ], url: { whiskey: "/whiskey/1236", compound: "/flavour/Spicy" },
-        filters: {
-            whiskey: {
-                region: ["Scotland"],
-                flavour: ["Sweet", "Spicy"],
+  },
+  {
+    img: [Ardbeg, otherCompound],
+    url: { whiskey: "/whiskey/Ardbeg", compound: "/flavour/Spicy" },
+    filters: {
+      whiskey: {
+        region: ["Scotland"],
+        flavour: ["Sweet", "Spicy"],
 
-                brand: ["Ardbeg"]
-            },
-            compound: {
-                flavour: ["Floral", "Fruity"]
-            }
-        }
+        brand: ["Ardbeg"],
+      },
+      compound: {
+        flavour: ["Floral", "Fruity"],
+      },
     },
-    {
-
-        img: [ Cotswolds, Guaiacol ], url: { whiskey: "/whiskey/1293213", compound: "/flavour/Sweet" },
-        filters: {
-            whiskey: {
-                region: ["Rest of the world"],
-                flavour: ["Sweet", "Smokey", "Herbal"],
-                brand: ["Cotswolds"]
-            },
-            compound: {
-                flavour: ["Spicy", "Herbal", "Peaty"]
-            }
-        }
+  },
+  {
+    img: [Cotswolds, Guaiacol],
+    url: { whiskey: "/whiskey/Cotswolds", compound: "/flavour/Sweet" },
+    filters: {
+      whiskey: {
+        region: ["Rest of the world"],
+        flavour: ["Sweet", "Smokey", "Herbal"],
+        brand: ["Cotswolds"],
+      },
+      compound: {
+        flavour: ["Spicy", "Herbal", "Peaty"],
+      },
     },
-    {
-
-        img: [ Elements, Ethanol ], url: { whiskey: "/whiskey/1293213", compound: "/flavour/Smokey" },
-        filters: {
-            whiskey: {
-                region: ["Rest of the world"],
-                flavour: ["Sweet", "Smokey", "Herbal"],
-                brand: ["Elements of Islay"]
-            },
-            compound: {
-                flavour: ["Smokey"]
-            }
-        }
+  },
+  {
+    img: [Elements, Ethanol],
+    url: { whiskey: "/whiskey/Elements", compound: "/flavour/Smokey" },
+    filters: {
+      whiskey: {
+        region: ["Rest of the world"],
+        flavour: ["Sweet", "Smokey", "Herbal"],
+        brand: ["Elements of Islay"],
+      },
+      compound: {
+        flavour: ["Smokey"],
+      },
     },
-    {
-
-        img: [ gM, otherCompound ], url: { whiskey: "/whiskey/0984092143", compound: "/flavour/Peaty" },
-        filters: {
-            whiskey: {
-                region: ["Scotland"],
-                flavour: ["Sweet", "Smokey", "Herbal"],
-                brand: ["G&M"]
-            },
-            compound: {
-                flavour: ["Peaty", "Herbal", "Floral"]
-            }
-        }
+  },
+  {
+    img: [gM, otherCompound],
+    url: { whiskey: "/whiskey/gM", compound: "/flavour/Peaty" },
+    filters: {
+      whiskey: {
+        region: ["Scotland"],
+        flavour: ["Sweet", "Smokey", "Herbal"],
+        brand: ["G&M"],
+      },
+      compound: {
+        flavour: ["Peaty", "Herbal", "Floral"],
+      },
     },
-    {
-        img: [ Glendronach, Guaiacol ], url: { whiskey: "/whiskey/12392193", compound: "/flavour/Floral" },
-        filters: {
-            whiskey: {
-                region: ["Scotland"],
-                flavour: ["Sweet", "Smokey", "Herbal"],
-                brand: ["Glendronach"]
-            },
-            compound: {
-                flavour: ["Sweet", "Smokey", "Herbal"]
-            }
-        }
+  },
+  {
+    img: [Glendronach, Guaiacol],
+    url: { whiskey: "/whiskey/Glendronach", compound: "/flavour/Floral" },
+    filters: {
+      whiskey: {
+        region: ["Scotland"],
+        flavour: ["Sweet", "Smokey", "Herbal"],
+        brand: ["Glendronach"],
+      },
+      compound: {
+        flavour: ["Sweet", "Smokey", "Herbal"],
+      },
     },
-]
+  },
+];
