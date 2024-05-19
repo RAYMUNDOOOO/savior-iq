@@ -60,7 +60,6 @@ function generateTiles(appliedMode, appliedFilters) {
                 />;
                 tiles.push(newTile);
             }
-            render = true;
         }
     } else if (appliedFilters != null && !appliedMode) {
         console.log(appliedFilters);
@@ -82,7 +81,16 @@ function generateTiles(appliedMode, appliedFilters) {
                 filters={TileTable[i].filters}
             />;
             tiles.push(newTile);
-            render = true;
+        }
+    } else if (appliedFilters == null) { 
+        for (var i = 0; i < TileTable.length; i++) {
+            var newTile = <Tile
+                mode={appliedMode}
+                img={TileTable[i].img}
+                url={TileTable[i].url}
+                filters={TileTable[i].filters}
+            />;
+            tiles.push(newTile);
         }
     }
 
