@@ -63,7 +63,7 @@ function Whiskey() {
                       <SideFilter text={state.type ? "whiskey" : "chemistry"} />
                   </div>
                   <div className="grid-container">
-                      <Grid appliedMode={true} />
+                      <Grid appliedMode={state.type} />
                   </div>
               </main>
           </AppliedFiltersContext.Provider>
