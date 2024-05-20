@@ -5,6 +5,7 @@ import Navbar from "../components/NavBar";
 import SideFilter from "../components/SideFilter";
 import Toggle from "../components/Toggle";
 import Grid from "../components/Grid";
+import '../styles/whiskey.css';
 
 /*
  * AppliedFiltersContext is a table of the filters that are currently
@@ -57,8 +58,14 @@ function Whiskey() {
                         setAppliedFilters
                 }}
           >
-                <SideFilter text={state.type ? "whiskey" : "chemistry"} />
-                <Grid appliedMode={state.type} />
+              <main className="main-container">
+                  <div className="side-filter">
+                      <SideFilter text={state.type ? "whiskey" : "chemistry"} />
+                  </div>
+                  <div className="grid-container">
+                      <Grid appliedMode={state.type} />
+                  </div>
+              </main>
           </AppliedFiltersContext.Provider>
       </div>
     </div>

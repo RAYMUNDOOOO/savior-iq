@@ -28,7 +28,12 @@ function Flavour() {
   }, [params.type]);
 
   if (!flavorData) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <Navbar />
+        <h1>Page Unavailable</h1>
+      </div>
+    );
   }
   console.log("Flavour data:", flavorData.description);
 
@@ -42,7 +47,6 @@ function Flavour() {
       <p>{flavorData.chemical}</p>
       <b>Description: </b>
       <p>{flavorData.description}</p>
-      
     </div>
   );
 }
