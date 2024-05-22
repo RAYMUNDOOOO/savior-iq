@@ -30,6 +30,7 @@ a:hover {
   align-items: center;
   gap: 40px;
   min-height: 70px;
+  width: 100vw;
 }
 
 /* logo  */
