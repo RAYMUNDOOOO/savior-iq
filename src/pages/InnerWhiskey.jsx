@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "chart.js/auto";
 import Navbar from "../components/NavBar";
+import SideFilter from "../components/SideFilter";
 import { useParams } from "react-router-dom";
 import { RadarChart } from "../components/RadarChart";
+import { Radar } from "react-chartjs-2";
 import { getData } from "../tables/whiskey";
-import {Radar} from "react-chartjs-2";
-import '../styles/whiskey.css';
 
 function InnerWhiskey() {
   const params = useParams();
@@ -70,25 +70,20 @@ function InnerWhiskey() {
       <Navbar />
       <h1>Inner Whiskey Page</h1>
       <p>Welcome to the Inner Whiskey {params.id} page!</p>
-        <div className="table-container">
-            {data.map((item, index) => (
-                <div className="table-item" key={index}>
-                    <div
-                        id="radar-chart"
-                        inputMode="myCustomMode"
-                        style={{ height: "40vh", width: "80vw" }}
-                    >
-                        <Radar
-                            data={data[index]}
-                            options={{
-                                onClick: handlePointClick,
-                            }}
-                        />
-                    </div>
-                    <div className="table-label">{item.datasets[0].label}</div>
-                </div>
-            ))}
-        </div>
+      <div
+        id="radar-chart"
+        inputMode="myCustomMode"
+        style={{ height: "40vh", width: "80vw" }}
+      >
+        {data && (
+          <RadarChart
+            data={data[params.id] != undefined ? data[params.id] : data[0]}
+            options={{
+              onClick: handlePointClick,
+            }}
+          />
+        )}
+      </div>
     </div>
   );
 }
