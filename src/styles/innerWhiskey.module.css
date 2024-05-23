@@ -1,13 +1,15 @@
 .homeContainer {
   background-color: white;
   height: 100vh;
-  flex-direction: row-reverse;
+  vertical-align: top;
+  align-items: center;
 }
 
 .homeContent {
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
+  /* flex-direction: flex-start; */
+  justify-content: flex-start;
+  align-items: center;
   color: black;
   padding-left: 5rem;
   padding-right: 5rem;
@@ -29,7 +31,15 @@
 .textContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-right: 5rem;
+  justify-content: flex-start;
+  align-items: center;
+  /* padding-right: 5rem; */
   width: 800vw;
+}
+.radarContainer {
+  background-color: white;
+  height: 100vh;
+  justify-content: center;
+  display: flex;
+  align-items: flex-start;
 }

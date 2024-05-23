@@ -5,19 +5,19 @@ import Navbar from "../components/NavBar";
 import SideFilter from "../components/SideFilter";
 import Toggle from "../components/Toggle";
 import Grid from "../components/Grid";
-import '../styles/whiskey.css';
+import "../styles/whiskey.css";
 
 /*
  * AppliedFiltersContext is a table of the filters that are currently
- * selected in the SideFilter component. It is to be written to by 
- * the SideFilter component and then passed to and read by the 
+ * selected in the SideFilter component. It is to be written to by
+ * the SideFilter component and then passed to and read by the
  * Grid component.
  */
 export const AppliedFiltersContext = createContext(null);
 
 function Whiskey() {
-        let [state, setState] = React.useState({ type: false });
-        const [appliedFilters, setAppliedFilters] = React.useState(null) 
+  let [state, setState] = React.useState({ type: false });
+  const [appliedFilters, setAppliedFilters] = React.useState(null);
 
   // const handleChange = () => {
   //   // Toggle the value of whiskey
@@ -46,27 +46,27 @@ function Whiskey() {
   }, [state.type]);
 
   return (
-    <div>
+    <div className="homeContainer">
       <Navbar />
       <h1>Whiskey Page</h1>
       <p>Welcome to the Whiskey page!</p>
       <div style={{ textAlign: "left" }}>
         <Toggle change={handleChange} />
-          <AppliedFiltersContext.Provider 
-                value={{
-                        appliedFilters,
-                        setAppliedFilters
-                }}
-          >
-              <main className="main-container">
-                  <div className="side-filter">
-                      <SideFilter text={state.type ? "whiskey" : "chemistry"} />
-                  </div>
-                  <div className="grid-container">
-                      <Grid appliedMode={state.type} />
-                  </div>
-              </main>
-          </AppliedFiltersContext.Provider>
+        <AppliedFiltersContext.Provider
+          value={{
+            appliedFilters,
+            setAppliedFilters,
+          }}
+        >
+          <main className="main-container">
+            <div className="side-filter">
+              <SideFilter text={state.type ? "whiskey" : "chemistry"} />
+            </div>
+            <div className="grid-container">
+              <Grid appliedMode={state.type} />
+            </div>
+          </main>
+        </AppliedFiltersContext.Provider>
       </div>
     </div>
   );

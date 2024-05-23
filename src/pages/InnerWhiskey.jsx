@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { RadarChart } from "../components/RadarChart";
 import { Radar } from "react-chartjs-2";
 import { getData } from "../tables/whiskey";
+import style from "../styles/innerWhiskey.module.css";
 
 function InnerWhiskey() {
   const params = useParams();
@@ -66,23 +67,32 @@ function InnerWhiskey() {
   };
 
   return (
-    <div>
+    <div className={`${style.homeContainer}`}>
       <Navbar />
-      <h1>Inner Whiskey Page</h1>
-      <p>Welcome to the Inner Whiskey {params.id} page!</p>
-      <div
-        id="radar-chart"
-        inputMode="myCustomMode"
-        style={{ height: "40vh", width: "80vw" }}
-      >
-        {data && (
-          <RadarChart
-            data={data[params.id] != undefined ? data[params.id] : data[0]}
-            options={{
-              onClick: handlePointClick,
-            }}
-          />
-        )}
+      <div className={`${style.homeContent}`}>
+        <div className={`${style.textContent}`}>
+          <h1>{params.id}</h1>
+          <p>Welcome to the Inner Whiskey {params.id} page!</p>
+          <div className={`${style.radarContainer}`}>
+            <div
+              id="radar-chart"
+              inputMode="myCustomMode"
+              style={{ height: "40vh", width: "80vw" }}
+              // style={{ height: "100%", width: "100%" }}
+            >
+              {data && (
+                <RadarChart
+                  data={
+                    data[params.id] != undefined ? data[params.id] : data[0]
+                  }
+                  options={{
+                    onClick: handlePointClick,
+                  }}
+                />
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
