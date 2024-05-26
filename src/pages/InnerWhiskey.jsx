@@ -74,9 +74,17 @@ function InnerWhiskey() {
           <h1>{params.id}</h1>
           <p>Welcome to the Inner Whiskey {params.id} page!</p>
           <div className={`${style.radarContainer}`}>
-            <p>
+            <p style={{ width: "50vw" }}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non
               sem tempor, dapibus velit a, facilisis nisi. Duis dignissim, sem a
+              placerat tristique, leo neque scelerisque enim, sed molestie
+              tellus lorem vel enim. Nam non sem eu sem varius imperdiet. Sed
+              quis laoreet ipsum, quis tempus ligula. Lorem ipsum dolor sit
+              amet, consectetur adipiscing elit. Nullam vitae gravida dolor, at
+              dictum erat. Integer venenatis pulvinar dui eu euismod. Aenean
+              feugiat risus at nulla feugiat, at malesuada massa volutpat. Lorem
+              ipsum dolor sit amet, consectetur adipiscing elit. Donec non sem
+              tempor, dapibus velit a, facilisis nisi. Duis dignissim, sem a
               placerat tristique, leo neque scelerisque enim, sed molestie
               tellus lorem vel enim. Nam non sem eu sem varius imperdiet. Sed
               quis laoreet ipsum, quis tempus ligula. Lorem ipsum dolor sit
@@ -88,7 +96,13 @@ function InnerWhiskey() {
             <div
               id="radar-chart"
               inputMode="myCustomMode"
-              // style={{ height: "40vh", width: "80vw" }}
+              className={`${style.radar}`}
+              style={{
+                height: "40vh",
+                width: "50vw",
+                paddingRight: "10vh",
+                paddingLeft: "5vh",
+              }}
               // style={{ height: "100%", width: "100%" }}
             >
               {data && (
@@ -105,9 +119,17 @@ function InnerWhiskey() {
           </div>
           <div className={`${style.textContent}`}>
             <h2>Chemical makeup</h2>
-            <p>
+            <p style={{ width: "80vw" }}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non
               sem tempor, dapibus velit a, facilisis nisi. Duis dignissim, sem a
+              placerat tristique, leo neque scelerisque enim, sed molestie
+              tellus lorem vel enim. Nam non sem eu sem varius imperdiet. Sed
+              quis laoreet ipsum, quis tempus ligula. Lorem ipsum dolor sit
+              amet, consectetur adipiscing elit. Nullam vitae gravida dolor, at
+              dictum erat. Integer venenatis pulvinar dui eu euismod. Aenean
+              feugiat risus at nulla feugiat, at malesuada massa volutpat. Lorem
+              ipsum dolor sit amet, consectetur adipiscing elit. Donec non sem
+              tempor, dapibus velit a, facilisis nisi. Duis dignissim, sem a
               placerat tristique, leo neque scelerisque enim, sed molestie
               tellus lorem vel enim. Nam non sem eu sem varius imperdiet. Sed
               quis laoreet ipsum, quis tempus ligula. Lorem ipsum dolor sit
