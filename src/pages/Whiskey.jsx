@@ -16,7 +16,7 @@ import "../styles/whiskey.css";
 export const AppliedFiltersContext = createContext(null);
 
 function Whiskey() {
-  let [state, setState] = React.useState({ type: false });
+  let [state, setState] = React.useState({ type: true });
   const [appliedFilters, setAppliedFilters] = React.useState(null);
 
   // const handleChange = () => {
@@ -60,7 +60,7 @@ function Whiskey() {
         >
           <main className="main-container">
             <div className="side-filter">
-              <SideFilter text={state.type ? "whiskey" : "chemistry"} />
+              <SideFilter text={state.type ? "chemistry" : "whiskey"} />
             </div>
             <div className="grid-container">
               <Grid appliedMode={state.type} />

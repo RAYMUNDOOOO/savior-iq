@@ -52,7 +52,7 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
 
 export default function Toggle({ change }) {
   const [state, setState] = React.useState({
-    whiskey: false,
+    whiskey: true,
   });
 
   const handleChange = () => {
