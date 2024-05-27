@@ -1,5 +1,5 @@
-# The Oracle
-*I thought this project was called Savor IQ.*
+# SavorIQ
+*I thought this project was called The Oracle.*
 
 ## Assessment Information
 **Client:** Chris Ferrie
@@ -10,10 +10,10 @@
 - Ramon Tovar (12918761): Front end
 - Clement Dai (12934992): UI/UX
 - Nicolas Solomos (24429488): Project leader
-- Peicheng Guo (13755020): Tester
+- Peicheng Guo (13755020): Tester and Business analyst
 - Jiguang Wen (14347328): Back end
 - Jiahui Sui (13720798): Back end
-- Zhiheng Gu (24901353): Business analyst
+- Zhiheng Gu (24901353): Business analyst and Tester
 
 # Requirements
 - [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) version 10.5.0
