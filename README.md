@@ -1,5 +1,5 @@
-# The Oracle
-*I thought this project was called Savor IQ.*
+# SavorIQ
+*I thought this project was called The Oracle.*
 
 ## Assessment Information
 **Client:** Chris Ferrie
