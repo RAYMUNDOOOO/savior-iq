@@ -4,6 +4,7 @@ import Navbar from "../components/NavBar";
 import { useParams } from "react-router-dom";
 import { getData } from "../tables/flavour";
 import { getImageURL } from "../utils/image-util";
+import style from "../styles/flavour.module.css";
 
 function Flavour() {
   const params = useParams();
@@ -38,15 +39,27 @@ function Flavour() {
   console.log("Flavour data:", flavorData.description);
 
   return (
-    <div>
+    <div className={`${style.homeContainer}`}>
       <Navbar />
-      <h1>{params.type}</h1>
-      <img src={getImageURL(params.type)} alt={params.type} />
-      <br></br>
-      <b>Chemical Name: </b>
-      <p>{flavorData.chemical}</p>
-      <b>Description: </b>
-      <p>{flavorData.description}</p>
+
+      <div className={`${style.homeContent}`}>
+        <div className={`${style.imgContainer}`}>
+          <img
+            src={getImageURL(params.type)}
+            alt={params.type}
+            // width="500rem"
+            // height="350rem"
+          />
+        </div>
+        <br></br>
+        <div className={`${style.textContainer}`}>
+          <h1>{params.type}</h1>
+          <b>Chemical Name: </b>
+          <p>{flavorData.chemical}</p>
+          <b>Description: </b>
+          <p>{flavorData.description}</p>
+        </div>
+      </div>
     </div>
   );
 }

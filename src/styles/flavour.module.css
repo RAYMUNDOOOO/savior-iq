@@ -1,0 +1,35 @@
+.homeContainer {
+  background-color: white;
+  height: 100vh;
+  flex-direction: row-reverse;
+}
+
+.homeContent {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  color: black;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  width: 100vw;
+}
+
+.homeContent > div {
+  padding-bottom: 2rem;
+}
+
+.homeContent .imgContainer img {
+  width: 40rem;
+  padding-top: 2rem;
+  padding-left: 5rem;
+  justify-content: center;
+  display: flex;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 5rem;
+  width: 800vw;
+}

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "chart.js/auto";
 import Navbar from "../components/NavBar";
+import SideFilter from "../components/SideFilter";
 import { useParams } from "react-router-dom";
 import { RadarChart } from "../components/RadarChart";
+import { Radar } from "react-chartjs-2";
 import { getData } from "../tables/whiskey";
-import {Radar} from "react-chartjs-2";
-import '../styles/whiskey.css';
+import style from "../styles/innerWhiskey.module.css";
 
 function InnerWhiskey() {
   const params = useParams();
@@ -66,29 +67,79 @@ function InnerWhiskey() {
   };
 
   return (
-    <div>
+    <div className={`${style.homeContainer}`}>
       <Navbar />
-      <h1>Inner Whiskey Page</h1>
-      <p>Welcome to the Inner Whiskey {params.id} page!</p>
-        <div className="table-container">
-            {data.map((item, index) => (
-                <div className="table-item" key={index}>
-                    <div
-                        id="radar-chart"
-                        inputMode="myCustomMode"
-                        style={{ height: "40vh", width: "80vw" }}
-                    >
-                        <Radar
-                            data={data[index]}
-                            options={{
-                                onClick: handlePointClick,
-                            }}
-                        />
-                    </div>
-                    <div className="table-label">{item.datasets[0].label}</div>
-                </div>
-            ))}
+      <div className={`${style.homeContent}`}>
+        <div className={`${style.textContent}`}>
+          <h1>{params.id}</h1>
+          <p>Welcome to the Inner Whiskey {params.id} page!</p>
+          <div className={`${style.radarContainer}`}>
+            <p style={{ width: "50vw" }}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non
+              sem tempor, dapibus velit a, facilisis nisi. Duis dignissim, sem a
+              placerat tristique, leo neque scelerisque enim, sed molestie
+              tellus lorem vel enim. Nam non sem eu sem varius imperdiet. Sed
+              quis laoreet ipsum, quis tempus ligula. Lorem ipsum dolor sit
+              amet, consectetur adipiscing elit. Nullam vitae gravida dolor, at
+              dictum erat. Integer venenatis pulvinar dui eu euismod. Aenean
+              feugiat risus at nulla feugiat, at malesuada massa volutpat. Lorem
+              ipsum dolor sit amet, consectetur adipiscing elit. Donec non sem
+              tempor, dapibus velit a, facilisis nisi. Duis dignissim, sem a
+              placerat tristique, leo neque scelerisque enim, sed molestie
+              tellus lorem vel enim. Nam non sem eu sem varius imperdiet. Sed
+              quis laoreet ipsum, quis tempus ligula. Lorem ipsum dolor sit
+              amet, consectetur adipiscing elit. Nullam vitae gravida dolor, at
+              dictum erat. Integer venenatis pulvinar dui eu euismod. Aenean
+              feugiat risus at nulla feugiat, at malesuada massa volutpat.
+            </p>
+
+            <div
+              id="radar-chart"
+              inputMode="myCustomMode"
+              className={`${style.radar}`}
+              style={{
+                height: "40vh",
+                width: "50vw",
+                paddingRight: "10vh",
+                paddingLeft: "5vh",
+              }}
+              // style={{ height: "100%", width: "100%" }}
+            >
+              {data && (
+                <RadarChart
+                  data={
+                    data[params.id] != undefined ? data[params.id] : data[0]
+                  }
+                  options={{
+                    onClick: handlePointClick,
+                  }}
+                />
+              )}
+            </div>
+          </div>
+          <div className={`${style.textContent}`}>
+            <h2>Chemical makeup</h2>
+            <p style={{ width: "80vw" }}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non
+              sem tempor, dapibus velit a, facilisis nisi. Duis dignissim, sem a
+              placerat tristique, leo neque scelerisque enim, sed molestie
+              tellus lorem vel enim. Nam non sem eu sem varius imperdiet. Sed
+              quis laoreet ipsum, quis tempus ligula. Lorem ipsum dolor sit
+              amet, consectetur adipiscing elit. Nullam vitae gravida dolor, at
+              dictum erat. Integer venenatis pulvinar dui eu euismod. Aenean
+              feugiat risus at nulla feugiat, at malesuada massa volutpat. Lorem
+              ipsum dolor sit amet, consectetur adipiscing elit. Donec non sem
+              tempor, dapibus velit a, facilisis nisi. Duis dignissim, sem a
+              placerat tristique, leo neque scelerisque enim, sed molestie
+              tellus lorem vel enim. Nam non sem eu sem varius imperdiet. Sed
+              quis laoreet ipsum, quis tempus ligula. Lorem ipsum dolor sit
+              amet, consectetur adipiscing elit. Nullam vitae gravida dolor, at
+              dictum erat. Integer venenatis pulvinar dui eu euismod. Aenean
+              feugiat risus at nulla feugiat, at malesuada massa volutpat.
+            </p>
+          </div>
         </div>
+      </div>
     </div>
   );
 }

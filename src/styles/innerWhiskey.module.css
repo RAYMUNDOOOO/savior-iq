@@ -1,0 +1,52 @@
+.homeContainer {
+  background-color: white;
+  height: 100vh;
+  vertical-align: top;
+  align-items: center;
+}
+
+.homeContent {
+  display: flex;
+  /* flex-direction: flex-start; */
+  justify-content: flex-start;
+  align-items: center;
+  color: black;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  width: 100vw;
+}
+
+.homeContent > div {
+  padding-bottom: 2rem;
+}
+
+.homeContent .imgContainer img {
+  width: 40rem;
+  padding-top: 2rem;
+  padding-left: 5rem;
+  justify-content: center;
+  display: flex;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  /* padding-right: 5rem; */
+  width: 800vw;
+}
+.radarContainer {
+  background-color: white;
+  height: 40vh;
+  justify-content: center;
+  display: flex;
+  align-items: flex-start;
+}
+.radar {
+  background-color: white;
+  height: 40vh;
+  justify-content: center;
+  display: flex;
+  align-items: flex-start;
+}
